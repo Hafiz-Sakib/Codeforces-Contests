@@ -1,74 +1,60 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-string ltrim(const string &);
-string rtrim(const string &);
-
 /*
- * Complete the 'fizzBuzz' function below.
- *
- * The function accepts INTEGER n as parameter.
- */
 
-void fizzBuzz(int n)
+string author;
+author = Hafiz_Sakib;
+
+*/
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+#define endl "\n"
+#define ignore cin.ignore(numeric_limits<streamsize>::max(), '\n')
+#define Boost                         \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL)
+
+#define debug(x) cerr << x << endl;
+#define here fprintf(stderr, "====I am Here====\n");
+
+int maxValue(int n, int index, int maxSum)
 {
-
-    for (int i = 1; i <= n; i++)
+    if (n == 1)
     {
-
-        if (i % 3 == 0 && i % 5 == 0)
-        {
-            cout << "FizzBuzz" << endl;
-        }
-
-        if (i % 3 == 0 && i % 5 != 0)
-        {
-            cout << "Fizz" << endl;
-        }
-
-        if (i % 5 == 0 && i % 3 != 0)
-        {
-            cout << "Buzz" << endl;
-        }
-
-        if (i % 3 != 0 && i % 5 != 0)
-        {
-            cout << i << endl;
-        }
+        return maxSum;
     }
+    int right = index, left = index;
+    int count = 1;
+    int limitRight = n - 1;
+    while (n <= maxSum && (left > 0 || right < limitRight))
+    {
+        n += right - left + 1;
+        if (left > 0)
+        {
+            left--;
+        }
+        if (right < limitRight)
+        {
+            right++;
+        }
+        count++;
+    }
+    if (n < maxSum)
+    {
+        count += (maxSum - n) / (right - left + 1) + 1;
+    }
+    return count - 1;
 }
 
 int main()
 {
-    string n_temp;
-    getline(cin, n_temp);
+    Boost;
 
-    int n = stoi(ltrim(rtrim(n_temp)));
-
-    fizzBuzz(n);
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+    }
 
     return 0;
-}
-
-string ltrim(const string &str)
-{
-    string s(str);
-
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace))));
-
-    return s;
-}
-
-string rtrim(const string &str)
-{
-    string s(str);
-
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end());
-
-    return s;
 }
