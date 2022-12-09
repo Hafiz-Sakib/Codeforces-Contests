@@ -21,39 +21,21 @@ int main()
 {
     Boost;
 
-    int n, ans = 0, t = 0;
+    int n, steps = 0;
     cin >> n;
-    if (n >= 5)
+
+    steps = n / 5;
+
+    if (n % 5 == 0)
     {
-        t = n % 5;
-        n = n / 5;
-        ans = n + t;
+        cout << steps << endl;
     }
-    if (t == 4)
+    else
     {
-        t = n % 4;
-        n = n / 4;
-        ans = ans + t;
+        cout << steps + 1 << endl;
     }
-    if (t == 3)
-    {
-        t = n % 5;
-        n = n / 3;
-        ans = ans + t;
-    }
-    if (t == 2)
-    {
-        t = n % 5;
-        n = n / 2;
-        ans = ans + t;
-    }
-    if (t == 1)
-    {
-        t = n % 5;
-        n = n / 1;
-        ans = ans + t;
-    }
-    cout << ans << endl;
 
     return 0;
 }
+
+// https://codeforces.com/contest/617/problem/A
