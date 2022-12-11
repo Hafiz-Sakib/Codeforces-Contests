@@ -20,9 +20,19 @@ using namespace std;
 int main()
 {
     Boost;
-    string s = "1";
-    int t = stoi(s);
-    cout << t << endl;
+
+    int op, x = 0;
+    cin >> op;
+    string statement;
+    for (int i = 0; i < op; i++)
+    {
+        cin >> statement;
+        if (statement[0] == '+' || statement[1] == '+')
+            x++;
+        if (statement[0] == '-' || statement[1] == '-')
+            x--;
+    }
+    cout << x;
 
     return 0;
 }
