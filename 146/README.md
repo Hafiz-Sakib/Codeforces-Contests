@@ -37,9 +37,9 @@
 
 - <img src="https://i.postimg.cc/kXJ2sTt8/eyes.gif" width="30" align="center"> I’m looking to Collaborate on **OpenSource Projects**
 
-- <img src="https://i.postimg.cc/BZPFmNm7/bomb.gif" width="30" align="center"> All of my Projects are available at **[My Portfolio](https://mr-Thomas-Shelbyy.netlify.app/)**
+- <img src="https://i.postimg.cc/BZPFmNm7/bomb.gif" width="30" align="center"> All of my Projects are available at **[My Portfolio](https://mr-hafiz-sakib.netlify.app/)**
 
-- <img src="https://i.postimg.cc/CxwVKhdy/airplane.gif" width="30" align="center"> How to reach me **hafizsakib5@gmail.com**
+- <img src="https://i.postimg.cc/CxwVKhdy/airplane.gif" width="30" align="center"> How to reach me **thomasshelbytg@gmail.com**
 
 - <img src="https://i.postimg.cc/RFF5t5pv/man-running.gif" width="30" align="center"> **I love to play Games and go to the GYM very often.**
 
