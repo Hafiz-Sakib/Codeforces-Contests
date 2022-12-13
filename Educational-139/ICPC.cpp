@@ -17,8 +17,9 @@ using namespace std;
 #define debug(x) cerr << x << endl;
 #define here fprintf(stderr, "====I am Here====\n");
 
-void Boom()
+int main()
 {
+    Boost;
     int n, cnt = 0, f = 0;
     cin >> n;
     vector<long long int> v(n);
@@ -46,21 +47,7 @@ void Boom()
         }
     }
 
-    if (f)
-    {
-        cout << cnt << endl;
-    }
-    else
-    {
-
-        cout << 0 << endl;
-    }
-}
-
-int main()
-{
-    Boost;
-    Boom();
+    cout << cnt << endl;
 
     return 0;
 }
