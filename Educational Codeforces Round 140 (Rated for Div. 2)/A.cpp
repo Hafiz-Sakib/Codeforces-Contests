@@ -18,16 +18,28 @@ using namespace std;
 #define debug(x) cerr << x << endl;
 #define here fprintf(stderr, "====I am Here====\n");
 
-float distance(int x1, int y1, int x2, int y2)
+float distance(int a1, int b1, int a2, int b2)
 {
-    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2) * 1.0);
+    return sqrt(pow(a2 - a1, 2) + pow(b2 - b1, 2) * 1.0);
 }
 
 void Boom()
 {
-    ll x1, x2, y1, y2, x3, y3;
-    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
-    if ((x1 > x2 && x1 < x3) || (x1 > x3 && x1 < x2) || (x2 > x1 && x2 < x3) || (x2 > x3 && x1 < x2) || (x1 < x3 && x3 < x2) || (x2 < x3 && x3 < x1) || (y1 > y2 && y1 < y3) || (y1 > y3 && y1 < y2) || (y1 < y2 && y2 < y3) || (y3 < y2 && y1 > y2) || (y1 < y3 && y3 < y2) || (y3 > y2 && y3 > y1))
+    ll a1, a2, b1, b2, a3, b3;
+    cin >> a1 >> b1 >> a2 >> b2 >> a3 >> b3;
+
+    if ((a1 > a2 && a1 < a3) ||
+        (a1 > a3 && a1 < a2) ||
+        (a2 > a1 && a2 < a3) ||
+        (a2 > a3 && a2 < a1) ||
+        (a3 > a1 && a3 < a2) ||
+        (a3 > a2 && a3 < a1) ||
+        (b1 > b2 && b1 < b3) ||
+        (b1 > b3 && b1 < b2) ||
+        (b2 > b1 && b2 < b3) ||
+        (b2 > b3 && b2 < b1) ||
+        (b3 > b1 && b3 < b2) ||
+        (b3 > b2 && b3 < b1))
     {
         cout << "YES" << endl;
     }
