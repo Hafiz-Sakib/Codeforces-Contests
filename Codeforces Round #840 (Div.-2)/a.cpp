@@ -30,6 +30,7 @@ void Boom()
 
     ll a = v[0];
     ll b = v[0];
+
     for (ll i = 0; i < n; i++)
     {
         a = a | v[i];
