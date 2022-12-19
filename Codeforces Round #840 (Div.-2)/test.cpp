@@ -20,18 +20,27 @@ using namespace std;
 
 void Boom()
 {
+    string s;
+    cin >> s;
+    for (ll i = 0; i < s.size(); i++)
+    {
+        if (s[i] == 'W' && s[i + 1] == 'U' && s[i + 2] == 'B')
+        {
+            cout << " ";
+            i += 2;
+        }
+        else
+        {
+            cout << s[i];
+        }
+    }
 }
 
 int main()
 {
     Boost;
 
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        Boom();
-    }
+    Boom();
 
     return 0;
 }
