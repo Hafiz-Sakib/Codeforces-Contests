@@ -20,6 +20,23 @@ using namespace std;
 
 void Boom()
 {
+    ll n;
+    cin >> n;
+    vector<ll> v(n);
+    for (ll i = 0; i < n; i++)
+    {
+        cin >> v[i];
+    }
+
+    ll a = v[0];
+    ll b = v[0];
+    for (ll i = 0; i < n; i++)
+    {
+        a = a | v[i];
+        b = b & v[i];
+    }
+    ll ans = a - b;
+    cout << ans << endl;
 }
 
 int main()
