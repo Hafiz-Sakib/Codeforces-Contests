@@ -22,7 +22,18 @@ void Boom()
 {
     string s;
     cin >> s;
-    cout << "    " << s << endl;
+    for (ll i = 0; i < s.size(); i++)
+    {
+        if (s[i] == 'W' && s[i + 1] == 'U' && s[i + 2] == 'B')
+        {
+            cout << " ";
+            i += 2;
+        }
+        else
+        {
+            cout << s[i];
+        }
+    }
 }
 
 int main()
