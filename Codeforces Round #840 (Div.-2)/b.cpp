@@ -20,6 +20,49 @@ using namespace std;
 
 void Boom()
 {
+    ll n, k;
+    cin >> n >> k;
+
+    vector<ll> p(n);
+    vector<ll> q(n);
+
+    for (ll i = 0; i < n; i++)
+    {
+        cin >> p[i];
+    }
+
+    for (ll i = 0; i < n; i++)
+    {
+        cin >> q[i];
+    }
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    for (ll i = 0; i < n; i++)
+    {
+        pq.push({q[i], p[i]});
+    }
+
+    ll res = k;
+
+    while (k > 0 && !pq.empty())
+    {
+        while (!pq.empty() && pq.top().second <= res)
+        {
+            pq.pop();
+        }
+
+        k -= pq.top().first;
+        res += k;
+    }
+
+    if (!pq.empty())
+    {
+        cout << "NO" << endl;
+    }
+    else
+    {
+        cout << "YES" << endl;
+    }
 }
 
 int main()
