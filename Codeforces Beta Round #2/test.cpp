@@ -96,14 +96,10 @@ void Boom()
 int main()
 {
     Boost;
-
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        // cout<<"Case "<<t<<" : ";
-        Boom();
-    }
+    printf("\n size of short: %lu", sizeof(short));
+    printf("\n size of int: %lu", sizeof(int));
+    printf("\n size of long int: %lu", sizeof(long));
+    printf("\n size of long long int: %lu", sizeof(long long));
 
     return 0;
 }
