@@ -9,6 +9,14 @@ author = Hafiz_Sakib;
 using namespace std;
 #define endl "\n"
 #define ll long long int
+typedef vector<vector<ll>> vvll;
+typedef vector<pair<ll, ll>> vpii;
+typedef vector<pair<string, ll>> vpsi;
+
+// "typedef vector<vector<ll>> vvll;",
+// "typedef vector<pair<ll, ll>> vpii;",
+// "typedef vector<pair<string, ll>> vpsi;"
+
 #define ignore cin.ignore(numeric_limits<streamsize>::max(), '\n')
 #define Boost                         \
     ios_base::sync_with_stdio(false); \
