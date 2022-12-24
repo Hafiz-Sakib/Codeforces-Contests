@@ -20,22 +20,23 @@ using namespace std;
 
 void Boom()
 {
-    ll f;
-    cin >> f;
-    vector<ll> forts(f);
-    for (ll i = 0; i < f; i++)
+    ll n;
+    cin >> n;
+    vector<ll> forts(n);
+    for (ll i = 0; i < n; i++)
     {
         cin >> forts[i];
     }
+
     vector<int> ans;
 
-    int n = forts.size();
-
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < forts.size(); i++)
     {
 
         if (forts[i] == 1 || forts[i] == -1)
+        {
             ans.push_back(i);
+        }
     }
 
     int res = 0;
