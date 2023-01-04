@@ -88,24 +88,49 @@ const ll infLL = 9000000000000000000;
     cin.tie(NULL);                    \
     cout.tie(NULL)
 
+bool isPrimeNumber(long long n)
+{
+
+    if (n <= 1)
+        return false;
+
+    if (n == 2 || n == 3)
+        return true;
+
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+
+    for (int i = 5; i <= sqrt(n); i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+
+    return true;
+}
+
 void Boom()
 {
-    ll a, b, c, k = 0;
-    cin >> a >> b >> c;
-    for (ll i = 2; i <= 100; i++)
+    long long n;
+    cin >> n;
+    bool answer = isPrimeNumber(n);
+    if (answer)
     {
-        if ((a % i != 0))
+        cout << -1 << endl;
+        return;
+    }
+
+    int kwrb = 0;
+    for (long long i = 2; i < n; i++)
+    {
+
+        if (n % i == 0 && i != (n / i) && kwrb == 0)
         {
-            if ((b % i != 0))
-            {
-                if ((c % i != 0))
-                {
-                    cout << i << endl;
-                    return;
-                }
-            }
+            cout << 1 << " ";
+            cout << i << " " << n / i << endl;
+            return;
         }
     }
+
+    cout << -1 << endl;
 }
 
 int main()
