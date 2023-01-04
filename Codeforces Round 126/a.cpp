@@ -90,6 +90,19 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
+    ll n;
+    cin >> n;
+
+    vector<ll> v;
+    for (ll i = 0; i < n; i++)
+    {
+        int p;
+        cin >> p;
+        v.push_back(p);
+    }
+    ll sum = vecSum(v);
+    double ans = (sum * 1.00 / n);
+    cout << setp(12) << ans << endl;
 }
 
 int main()
