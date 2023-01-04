@@ -1,5 +1,5 @@
+/* Sakib */
 #include <stdio.h>
-
 int main()
 {
     int n, count = 0;
