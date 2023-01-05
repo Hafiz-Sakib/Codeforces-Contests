@@ -88,11 +88,6 @@ const ll infLL = 9000000000000000000;
     cin.tie(NULL);                    \
     cout.tie(NULL)
 
-void Boom()
-{
-    // Let's Move
-}
-
 int main()
 {
     Boost;
