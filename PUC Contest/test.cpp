@@ -21,6 +21,39 @@ using namespace std;
 
 void Boom()
 {
+    string s, r = "";
+    cin >> s;
+    ll cnt = 1, x = 1;
+    if (s.size() <= 3)
+    {
+        cout << s << endl;
+        return;
+    }
+    else
+    {
+        for (auto u : s)
+        {
+            if (x)
+            {
+                r += u;
+                r += ',';
+                x = 0;
+                continue;
+            }
+            if (cnt < 4)
+            {
+                r += u;
+                cnt++;
+            }
+            else if (cnt == 4)
+            {
+                r += ',';
+                r += u;
+                cnt = 1;
+            }
+        }
+    }
+    cout << r << endl;
 }
 
 int main()
@@ -28,7 +61,6 @@ int main()
     Boost;
 
     int t = 1;
-    cin >> t;
     while (t--)
     {
         Boom();
