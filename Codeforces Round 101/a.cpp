@@ -20,6 +20,19 @@ using namespace std;
 
 void Boom()
 {
+    string s, p, q, sum;
+    cin >> s >> p >> q;
+    sum = s + p;
+    sort(sum.begin(), sum.end());
+    sort(q.begin(), q.end());
+    if (sum == q)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 }
 
 int main()
@@ -27,7 +40,7 @@ int main()
     Boost;
 
     int t = 1;
-    cin >> t;
+
     while (t--)
     {
         Boom();
