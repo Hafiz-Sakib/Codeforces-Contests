@@ -20,6 +20,31 @@ using namespace std;
 
 void Boom()
 {
+
+    int n, s = 0;
+    cin >> n;
+    for (ll i = 0; i < n; i++)
+    {
+        ll a;
+        cin >> a;
+        s += a;
+    }
+    ll pos = (s % (n + 1)), cnt = 0;
+
+    for (ll i = 0; i < 5; i++)
+    {
+        pos++;
+        if (pos > n + 1)
+        {
+            pos = 1;
+        }
+        if (pos != 1)
+        {
+            cnt++;
+        }
+    }
+
+    cout << cnt << endl;
 }
 
 int main()
