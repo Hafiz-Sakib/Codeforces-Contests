@@ -20,6 +20,18 @@ using namespace std;
 
 void Boom()
 {
+
+    int n;
+    cin >> n;
+    for (ll i = 3; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            cout << "Not Prime" << endl;
+            return;
+        }
+    }
+    cout << "YaaY Prime!!" << endl;
 }
 
 int main()
@@ -27,7 +39,7 @@ int main()
     Boost;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--)
     {
         Boom();
