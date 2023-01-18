@@ -20,6 +20,14 @@ using namespace std;
 
 void Boom()
 {
+    int n, k, l, c, d, p, nl, np;
+    cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+    int td = k * l;
+    td = td / nl;
+    int tslice = c * d;
+    int tsalt = p / np;
+    ll ans = min(min(td, tslice), tsalt) / n;
+    cout << ans << endl;
 }
 
 int main()
