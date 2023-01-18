@@ -29,6 +29,7 @@ void Boom()
         cin >> a;
         s += a;
     }
+
     ll pos = (s % (n + 1)), cnt = 0;
 
     for (ll i = 0; i < 5; i++)
