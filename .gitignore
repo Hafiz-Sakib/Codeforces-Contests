@@ -9,9 +9,11 @@
 *.bin
 *.cph
 *.prob
+*.obj
+bin/
+/bin
+/OBJ
 
-**/bin/*
-**/obj/*
 
 # Packages #
 ############
