@@ -24,29 +24,32 @@ void Boom()
 {
     ll n, x, y, w, tt = 0;
     cin >> n >> x >> y >> w;
-    while (true)
+    ll t = n;
+
+    while (n > 0)
     {
         if (n >= x)
         {
             n = n - x;
+            tt = tt + x;
+            if (n > 0)
+            {
+                tt = tt + y;
+                n = n + w;
+            }
         }
         else
         {
-            tt += n;
+            tt = tt + n;
+            n = n - n;
         }
-        tt += x;
-        tt += y;
-        n += w;
-        if (n <= 0)
-        {
-            break;
-        }
-        if (n >= 100000)
+        if (n > t)
         {
             cout << -1 << endl;
             return;
         }
     }
+
     cout << tt << endl;
 }
 
