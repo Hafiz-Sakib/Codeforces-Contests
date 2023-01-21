@@ -23,13 +23,13 @@ void Boom()
     ll n, c1 = 0, c2 = 0;
     cin >> n;
     ll r = n / 3;
+    c1 = c2 = r;
     n = n % 3;
-    c1 = r;
-    c2 = r;
     if (n % 3 == 2)
     {
         c2++;
     }
+
     else if (n % 3 == 1)
     {
         c1++;
