@@ -28,11 +28,14 @@ void Boom()
     {
         cin >> a[i];
     }
+    // Sample Input :
+    // 10
+    // 2 5 7 -1 5 6 8 10 0 10
     for (int i = 0; i < n; i++)
     {
-        if (a[p[i] - 1])
+        if (1)
         {
-            cout << a[i] << ' ';
+            cout << i + 1 << ' ';
         }
     }
 }
