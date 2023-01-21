@@ -1,1 +1,0 @@
-{"name":"Local: e","url":"c:\\PU Projects\\OJ Problem Solve\\Codeforces Random Problem Solve\\IIUC\\e.cpp","tests":[{"id":1674227782803,"input":"3\n6 3 2 1\n10 5 5 10\n10 3 2 2","output":"12\n-1\n38"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\PU Projects\\OJ Problem Solve\\Codeforces Random Problem Solve\\IIUC\\e.cpp","group":"local","local":true}
