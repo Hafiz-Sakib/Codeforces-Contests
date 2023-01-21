@@ -25,16 +25,14 @@ void Boom()
     if (n == 1)
     {
         cout << 0 << endl;
+        return;
     }
-    else
+    ll mod = 1000000007, ans = n * (n - 1);
+    for (ll i = 1; i <= n; i++)
     {
-        ll mod = 1000000007, ans = n * (n - 1);
-        for (ll i = 1; i <= n; i++)
-        {
-            ans = (ans * i) % mod;
-        }
-        cout << ans << endl;
+        ans = (ans * i) % mod;
     }
+    cout << ans << endl;
 }
 
 int main()
