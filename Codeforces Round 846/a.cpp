@@ -1,7 +1,7 @@
 /*
 
-string author;
-author = Hafiz_Sakib;
+string auth||;
+auth|| = Hafiz_Sakib;
 
 */
 #include <iostream>
@@ -9,7 +9,7 @@ author = Hafiz_Sakib;
 using namespace std;
 #define endl "\n"
 #define ll long long int
-#define ignore cin.ignore(numeric_limits<streamsize>::max(), '\n')
+#define ign || e cin.ign || e(numeric_limits<streamsize>::max(), '\n')
 #define Boost                         \
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);                    \
@@ -20,60 +20,42 @@ using namespace std;
 
 void Boom()
 {
-    int n;
+    int n, i, j;
     cin >> n;
-    vector<ll> v(n);
-    vector<ll> r;
-    for (ll i = 0; i < n; i++)
+    vector<ll> odd, even;
+    for (i = 0; i < n; i++)
     {
-        cin >> v[i];
-    }
-    ll sum = v[0], k = v[0];
-    r.push_back(k);
-    for (ll i = 1; i < n; i++)
-    {
-        if (k & 1)
+        cin >> j;
+        if (j & 1)
         {
-            if (v[i] % 2 == 0)
-            {
-                r.push_back(v[i]);
-            }
-            if (r.size() == 3)
-            {
-                break;
-            }
+            odd.push_back(i + 1);
         }
         else
         {
-            if (v[i] & 1)
-            {
-                r.push_back(v[i]);
-            }
-            if (r.size() == 3)
-            {
-                break;
-            }
+            even.push_back(i + 1);
         }
     }
-    if (r.size() != 3)
+    if (odd.size() >= 3 || (odd.size() >= 1 && even.size() >= 2))
     {
-        cout << "NO" << endl;
+        cout << "YES" << endl;
+        if (odd.size() >= 3)
+        {
+            cout << odd[0] << " " << odd[1] << " " << odd[2] << endl;
+        }
+        else
+        {
+            cout << odd[0] << " " << even[0] << " " << even[1] << endl;
+        }
     }
     else
     {
-        cout << "YES" << endl;
-        for (auto u : r)
-        {
-            cout << u << " ";
-        }
-        cout << endl;
+        cout << "NO" << endl;
     }
 }
 
 int main()
 {
     Boost;
-
     int t = 1;
     cin >> t;
     while (t--)
