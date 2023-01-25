@@ -20,36 +20,33 @@ using namespace std;
 
 void Boom()
 {
-    ll a, b, c, d;
+    int a, b, c, d, ans = 0;
     cin >> a >> b >> c >> d;
-    ll total = a;
-    ll alice = a, bob = a;
-    if (total == 0)
+    if (!a)
     {
         cout << 1 << endl;
-        return;
-    }
-    ll mn = min(b, c);
-    b -= mn, c -= mn;
-    total += mn * 2ll;
-    if (b)
-    {
-        mn = min({b, bob + 1});
-        total += mn;
-        bob -= mn;
-        alice += mn;
     }
     else
     {
-        mn = min(c, alice + 1);
-        total += mn;
-        alice -= mn;
-        bob += mn;
+        ans = a + 2 * min(b, c);
+        if (b < c)
+        {
+            swap(b, c);
+        }
+        b -= c;
+        if (b + d > 0)
+        {
+            if (b + d > a)
+            {
+                ans += a + 1;
+            }
+            else
+            {
+                ans += b + d;
+            }
+        }
+        cout << ans << endl;
     }
-    mn = min(min(alice, bob) + 1, d);
-    total += mn;
-
-    cout << total << endl;
 }
 
 int main()
