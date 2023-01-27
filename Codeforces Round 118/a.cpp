@@ -20,15 +20,27 @@ using namespace std;
 
 void Boom()
 {
-    string s, p, r;
+    string s, p;
     cin >> s >> p;
-    swap(s[0], s[1]);
-    if (s.size() > 2 && p.size() > 2)
+    vector<char> v;
+    if (s.size() != p.size())
     {
-        sort(s.begin() + 2, s.end());
-        sort(p.begin() + 2, p.end());
+        cout << "NO" << endl;
+        return;
     }
-    if (p == s)
+    for (ll i = 0; i < s.size(); i++)
+    {
+        if (s[i] != p[i])
+        {
+            v.push_back(s[i]), v.push_back(p[i]);
+        }
+    }
+    if (v.size() > 4)
+    {
+        cout << "NO" << endl;
+        return;
+    }
+    if ((v[1] == v[2] && v[0] == v[3]))
     {
         cout << "YES" << endl;
     }
@@ -42,11 +54,7 @@ int main()
 {
     Boost;
 
-    int t = 1;
-    while (t--)
-    {
-        Boom();
-    }
+    Boom();
 
     return 0;
 }
