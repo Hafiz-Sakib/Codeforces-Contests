@@ -28,7 +28,7 @@ void Boom()
     for (ll i = 0; i < n - 1; i++)
     {
         v[i] = 1;
-        r = r - 1;
+        r--;
     }
     ll i = 0;
     while (r != 0)

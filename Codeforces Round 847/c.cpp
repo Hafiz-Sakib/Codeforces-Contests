@@ -20,6 +20,44 @@ using namespace std;
 
 void Boom()
 {
+    int n;
+    cin >> n;
+
+    vector<vector<int>> seq(n, vector<int>(n - 1));
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - 1; j++)
+        {
+            cin >> seq[i][j];
+        }
+    }
+    vector<int> perm(n);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            bool found = true;
+            for (int k = 0; k < n - 1; k++)
+            {
+                if (seq[i][k] != seq[j][k])
+                {
+                    found = false;
+                    break;
+                }
+            }
+            if (found)
+            {
+                perm[i] = seq[j][n - 2];
+                break;
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << perm[i] << " ";
+    }
+    cout << endl;
 }
 
 int main()
