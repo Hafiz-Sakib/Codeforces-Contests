@@ -22,40 +22,41 @@ void Boom()
 {
     int n;
     cin >> n;
-
-    vector<vector<int>> seq(n, vector<int>(n - 1));
+    vector<vector<ll>> v(n, vector<ll>(n - 1));
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n - 1; j++)
         {
-            cin >> seq[i][j];
+            cin >> v[i][j];
         }
     }
-    vector<int> perm(n);
-    for (int i = 0; i < n; i++)
+    ll x = -1, y = -1;
+    for (ll i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        ll f = 0;
+        for (ll k = 0; k < n; k++)
         {
-            bool found = true;
-            for (int k = 0; k < n - 1; k++)
+            if (i == k)
             {
-                if (seq[i][k] != seq[j][k])
-                {
-                    found = false;
-                    break;
-                }
+                continue;
             }
-            if (found)
+            if (v[i][1] == v[k][0])
             {
-                perm[i] = seq[j][n - 2];
+                x = i;
+                y = k;
+                f = 1;
                 break;
             }
         }
+        if (f == 1)
+        {
+            break;
+        }
     }
-
-    for (int i = 0; i < n; i++)
+    cout << v[x][0] << ' ';
+    for (ll i = 0; i < n - 1; i++)
     {
-        cout << perm[i] << " ";
+        cout << v[y][i] << ' ';
     }
     cout << endl;
 }
