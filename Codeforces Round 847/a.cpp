@@ -20,6 +20,22 @@ using namespace std;
 
 void Boom()
 {
+    string PI = "3141592653589793238462643383279";
+    string s;
+    cin >> s;
+    ll cnt = 0;
+    for (ll i = 0; i < min(PI.size(), PI.size()); i++)
+    {
+        if (PI[i] == s[i])
+        {
+            cnt++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    cout << cnt << endl;
 }
 
 int main()
