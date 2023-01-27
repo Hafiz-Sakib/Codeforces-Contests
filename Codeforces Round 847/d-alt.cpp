@@ -32,8 +32,9 @@ void Boom()
     }
     else
     {
-        cout << n * (6 / 4) << " " << n / 2;
+        cout << (n * 6) / 4 << " " << n / 2;
     }
+    cout << endl;
 }
 
 int main()
