@@ -42,7 +42,6 @@ void Boom()
     }
     cout << diff;
 }
-
 int main()
 {
     Boost;
