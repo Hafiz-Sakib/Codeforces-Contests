@@ -20,24 +20,46 @@ using namespace std;
 
 void Boom()
 {
-    string s, t;
-    cin >> s >> t;
-    int pos = 1, k = 0;
-    for (int i = 0; i < t.size(); i++)
+    ll n, x = 0, y = 0;
+    string s;
+    cin >> n >> s;
+    for (auto i : s)
     {
-        if (t[i] == s[k])
+        if (i == 'U')
         {
-            // cout << t[i] << ' ' << s[i] << endl;
-            pos++;
-            k++;
+            y++;
+        }
+        if (i == 'D')
+        {
+            y--;
+        }
+        if (i == 'R')
+        {
+            x++;
+        }
+        if (i == 'L')
+        {
+            x--;
+        }
+        if (x == 1 && y == 1)
+        {
+            cout << "YES" << endl;
+            return;
         }
     }
-    cout << pos << endl;
+    cout << "NO" << endl;
 }
 
 int main()
 {
     Boost;
-    Boom();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        Boom();
+    }
+
     return 0;
 }

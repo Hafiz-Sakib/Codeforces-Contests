@@ -20,24 +20,37 @@ using namespace std;
 
 void Boom()
 {
-    string s, t;
-    cin >> s >> t;
-    int pos = 1, k = 0;
-    for (int i = 0; i < t.size(); i++)
+    string cf = "codeforces";
+    char s;
+    cin >> s;
+    int ok = 0;
+    for (ll i = 0; i < cf.size(); i++)
     {
-        if (t[i] == s[k])
+        if (cf[i] == s)
         {
-            // cout << t[i] << ' ' << s[i] << endl;
-            pos++;
-            k++;
+            ok = 1;
         }
     }
-    cout << pos << endl;
+    if (ok)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 }
 
 int main()
 {
     Boost;
-    Boom();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        Boom();
+    }
+
     return 0;
 }

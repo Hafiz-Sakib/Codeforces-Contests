@@ -20,24 +20,38 @@ using namespace std;
 
 void Boom()
 {
-    string s, t;
-    cin >> s >> t;
-    int pos = 1, k = 0;
-    for (int i = 0; i < t.size(); i++)
+    ll n;
+    cin >> n;
+    string s;
+    cin >> s;
+    ll left = 0, right = n - 1, res = n;
+    while (left <= right)
     {
-        if (t[i] == s[k])
+        if (((s[left] == '1') && (s[right] == '0')) || ((s[left] == '0') && (s[right] == '1')))
         {
-            // cout << t[i] << ' ' << s[i] << endl;
-            pos++;
-            k++;
+            res -= 2;
+            left++;
+            right--;
+        }
+        else
+        {
+            cout << res << endl;
+            return;
         }
     }
-    cout << pos << endl;
+    cout << res << endl;
 }
 
 int main()
 {
     Boost;
-    Boom();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        Boom();
+    }
+
     return 0;
 }
