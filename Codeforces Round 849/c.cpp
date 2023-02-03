@@ -20,34 +20,26 @@ using namespace std;
 
 void Boom()
 {
-    ll n, x = 0, y = 0;
+    ll n;
+    cin >> n;
     string s;
-    cin >> n >> s;
-    for (auto i : s)
+    cin >> s;
+    ll left = 0, right = n - 1, res = n;
+    while (left <= right)
     {
-        if (i == 'U')
+        if (((s[left] == '1') && (s[right] == '0')) || ((s[left] == '0') && (s[right] == '1')))
         {
-            y++;
+            res -= 2;
+            left++;
+            right--;
         }
-        if (i == 'D')
+        else
         {
-            y--;
-        }
-        if (i == 'R')
-        {
-            x++;
-        }
-        if (i == 'L')
-        {
-            x--;
-        }
-        if (x == 1 && y == 1)
-        {
-            cout << "YES" << endl;
+            cout << res << endl;
             return;
         }
     }
-    cout << "NO" << endl;
+    cout << res << endl;
 }
 
 int main()
