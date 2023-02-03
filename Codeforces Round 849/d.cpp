@@ -1,6 +1,6 @@
 /*
 
- sing author;
+ string author;
 author = Hafiz_Sakib;
 
 */
