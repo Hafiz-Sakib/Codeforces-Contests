@@ -20,32 +20,34 @@ using namespace std;
 
 void Boom()
 {
-    ll n, cnt = 0, sum = 0;
-    cin >> n;
-    vector<ll> a(n);
+    ll n, c;
+    cin >> n >> c;
+    vector<ll> v(n);
     for (ll i = 0; i < n; i++)
     {
-        cin >> a[i];
+        cin >> v[i];
     }
-    vector<ll> v;
     for (ll i = 0; i < n; i++)
     {
-        v.push_back(abs(a[i]));
-        if (a[i] < 0)
-        {
-            cnt++;
-        }
-        sum += abs(a[i]);
+        v[i] = v[i] + (i + 1);
     }
     sort(v.begin(), v.end());
-    if (cnt & 1)
+    ll ans = 0;
+    for (ll i = 0; i < n; i++)
     {
-        cout << sum - 2 * v[0] << endl;
+        if (c >= v[i])
+        {
+            c = c - (v[i]);
+            ans = i;
+        }
+        else
+        {
+            ans = i;
+            break;
+        }
     }
-    else
-    {
-        cout << sum << endl;
-    }
+
+    cout << ans << endl;
 }
 
 int main()
