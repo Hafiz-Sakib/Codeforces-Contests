@@ -1,3 +1,11 @@
+/*
+Name : Hafiz Sakib
+Id : 0222210005101118
+
+*/
+
+// Problem : Show Row and Column Sum of A 2D array
+
 #include <stdio.h>
 int main()
 {
