@@ -1,91 +1,47 @@
+/*
+
+string author;
+author = Hafiz_Sakib;
+
+*/
+#include <iostream>
 #include <bits/stdc++.h>
-#include <map>
-
 using namespace std;
+#define endl "\n"
+#define ll long long int
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define YES cout << "Yes\n"
+#define NO cout << "No\n"
+#define ignore cin.ignore(numeric_limits<streamsize>::max(), '\n')
+#define Boost                         \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL)
 
-struct student_data
-{
-    string email, blood_group;
-    int day, month, year;
-};
-
-bool comp(student_data s1, student_data s2)
-{
-    return s1.email < s2.email;
-}
+#define debug(x) cerr << x << endl;
+#define here fprintf(stderr, "====I am Here====\n");
 
 int main()
 {
-    int n;
-    cin >> n;
-    string input, email, blood_group;
-    int day, month, year, hour, minute, second, birthday_day, birthday_month, birthday_year;
-    map<string, student_data> data;
-    for (int i = 0; i < n; i++)
+    Boost;
+
+    int t = 1;
+    cin >> t;
+    for (int i = 1; i <= t; i++)
     {
-        cin >> input;
-        day = stoi(input.substr(0, 2));
-        month = stoi(input.substr(3, 2));
-        year = stoi(input.substr(6, 4));
-        cin >> email;
-        cin >> input;
-        birthday_day = stoi(input.substr(0, 2));
-        birthday_month = stoi(input.substr(3, 2));
-        birthday_year = stoi(input.substr(6, 4));
-        cin >> blood_group;
-        if (data.count(email) == 0)
+        int a, b, c, k;
+        cin >> a >> b >> c >> k;
+        int max_val = max(max(a, b), c);
+        if (max_val > (a + k) || max_val > (b + k) || max_val > (c + k))
         {
-            data[email] = {email, blood_group, birthday_day, birthday_month, birthday_year};
+            cout << "Case " << i << ": Fight" << endl;
         }
         else
         {
-            data[email] = {email, blood_group, birthday_day, birthday_month, birthday_year};
+            cout << "Case " << i << ": Peaceful" << endl;
         }
     }
 
-    vector<student_data> students_data;
-    for (map<string, student_data>::iterator it = data.begin(); it != data.end(); it++)
-    {
-        students_data.push_back(it->second);
-    }
-    sort(students_data.begin(), students_data.end(), comp);
-
-    int A_plus = 0, A_minus = 0, AB_plus = 0, AB_minus = 0, B_plus = 0, B_minus = 0, O_plus = 0, O_minus = 0;
-    for (int i = 0; i < students_data.size(); i++)
-    {
-        if (students_data[i].blood_group == "A+")
-        {
-            A_plus++;
-        }
-        else if (students_data[i].blood_group == "A-")
-        {
-            A_minus++;
-        }
-        else if (students_data[i].blood_group == "AB+")
-        {
-            AB_plus++;
-        }
-        else if (students_data[i].blood_group == "AB-")
-        {
-            AB_minus++;
-        }
-        else if (students_data[i].blood_group == "B+")
-        {
-            B_plus++;
-        }
-        else if (students_data[i].blood_group == "B-")
-        {
-            B_minus++;
-        }
-        else if (students_data[i].blood_group == "O+")
-        {
-            O_plus++;
-        }
-        else if (students_data[i].blood_group == "O-")
-        {
-            O_minus++;
-        }
-    }
-
-    cout << "A+ " << A_plus;
+    return 0;
 }
