@@ -24,8 +24,18 @@ using namespace std;
 
 void Boom()
 {
-    string s;
+    map<string, int> blood;
+    map<string, int> year;
+    string s, p;
     cin >> s;
+    for (ll i = s.size() - 1; i > 4; i--)
+    {
+        if (s[i] != ' ')
+        {
+            p += s[i];
+        }
+    }
+    reverse(p.begin(), p.end());
 }
 
 int main()

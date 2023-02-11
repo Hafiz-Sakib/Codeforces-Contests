@@ -37,7 +37,8 @@ int main()
             cin >> v[i];
         }
         a = (v[n - 1] * n);
-        b = v[0];
+        sort(v.begin(), v.end());
+        b = v[1];
         ans = a - b;
         cout << "Case " << i << ": " << ans << endl;
     }
