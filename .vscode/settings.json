@@ -4,6 +4,10 @@
     "valarray": "cpp",
     "random": "cpp",
     "limits": "cpp",
-    "chrono": "cpp"
+    "chrono": "cpp",
+    "*.tcc": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp"
   }
 }

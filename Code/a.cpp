@@ -24,24 +24,18 @@ using namespace std;
 
 void Boom()
 {
-    string s;
-    cin >> s;
-    bool ok = 0;
-    for (int i = 0; i < s.size(); i++)
+    int a, b, ok = 1;
+    cin >> a >> b;
+    string s, p;
+    cin >> s >> p;
+    reverse(p.begin(), p.end());
+    s += p;
+    int cnt = 0;
+    for (int i = 0; i < s.size() - 1; i++)
     {
-        if ((s[i] == '1' and s[i + 1] == '0' and s[i + 2] == '1') || (s[i] == '0' and s[i + 1] == '1' and s[i + 2] == '0'))
-        {
-            ok = 1;
-        }
+        cnt += (s[i] == s[i + 1]);
     }
-    if (ok)
-    {
-        cout << "Good" << endl;
-    }
-    else
-    {
-        cout << "Bad" << endl;
-    }
+    cout << (cnt <= 1 ? "YES" : "NO") << endl;
 }
 
 int main()
