@@ -20,22 +20,29 @@ using namespace std;
 
 void Boom()
 {
-    ll n, cnt = 0, sum = 0;
-    cin >> n;
+    ll n, k, ans = 0, cnt = 1;
+    set<ll> s;
+    cin >> n >> k;
     for (ll i = 1; i * i <= n; i++)
     {
         if (n % i == 0)
         {
-            cnt += 1;
-            sum += i;
-            if (i != (n / i))
-            {
-                sum += n / i;
-                cnt++;
-            }
+            s.insert(i);
+            s.insert(n / i);
         }
     }
-    cout << cnt << " " << sum << endl;
+
+    for (auto u : s)
+    {
+        if (cnt == k)
+        {
+            cout << u << endl;
+            return;
+        }
+        cnt++;
+    }
+
+    cout << -1 << endl;
 }
 
 int main()
