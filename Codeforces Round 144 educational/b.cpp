@@ -24,32 +24,57 @@ using namespace std;
 
 void Boom()
 {
-    ll k;
-    cin >> k;
-    string fb = "";
-    for (int i = 1; fb.length() < k; i++)
+    string s, p;
+    cin >> s >> p;
+    if (s.size() == 1 && p.size() == 1)
     {
-        if (i % 3 == 0)
+        if (s == p)
         {
-            fb += "F";
+            yes;
+            cout << s << endl;
+            return;
         }
-        if (i % 5 == 0)
+        no;
+        return;
+    }
+    if ((s[0] == p[0]) || (s[s.size() - 1] == p[p.size() - 1]))
+    {
+        yes;
+        if (s[0] == p[0])
         {
-            fb += "B";
+            cout << s[0] << '*' << endl;
         }
-        if ((i % 5 == 0) && (i % 3 == 0))
+        else
         {
-            fb += "F";
-            fb += "B";
+            cout << '*' << s[s.size() - 1] << endl;
+        }
+        return;
+    }
+
+    for (int i = 0; i < s.size(); i++)
+    {
+        for (int j = 0; j < p.size(); j++)
+        {
+            if (s[i] == p[j])
+            {
+                if (i < (s.size() - 1) && j < (p.size() - 1))
+                {
+                    if (s[i + 1] == p[j + 1])
+                    {
+                        yes;
+                        cout << '*' << s[i] << s[i + 1] << '*' << endl;
+                        return;
+                    }
+                }
+            }
         }
     }
-    cout << fb << endl;
+    no;
 }
 
 int main()
 {
     Boost;
-
     int t = 1;
     cin >> t;
     while (t--)
