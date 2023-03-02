@@ -63,6 +63,9 @@ typedef set<double> sd;
 
 void Boom()
 {
+    ll n;
+    string s;
+    cin >> n >> s;
 }
 
 int main()
