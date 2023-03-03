@@ -31,6 +31,8 @@ typedef set<string> ss;
 #define se second
 #define space ' '
 #define endl "\n"
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
 
 #define b() begin()
 #define e() end()
@@ -40,12 +42,12 @@ typedef set<string> ss;
 #define vecMin(data) *min_element(data.begin(), data.end())
 #define vecSum(data) accumulate(data.begin(), data.end(), 0)
 
-#define yes cout << "YES\n"
-#define no cout << "NO\n"
-
 #define stringLower(data) transform(data.begin(), data.end(), data.begin(), ::tolower)
 #define stringUpper(data) transform(data.begin(), data.end(), data.begin(), ::toupper)
 #define ignore cin.ignore(numeric_limits<streamsize>::max(), '\n')
+
+#define debug(x) cerr << x << endl;
+#define here fprintf(stderr, "====I am Here====\n");
 
 #define Boost                         \
     ios_base::sync_with_stdio(false); \
@@ -54,6 +56,7 @@ typedef set<string> ss;
 
 void Boom()
 {
+    cout << "Bangladesh VS England" << endl;
 }
 
 int main()
