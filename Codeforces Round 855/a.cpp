@@ -44,6 +44,8 @@ typedef set<double> sd;
 #define vecSum(data) accumulate(data.begin(), data.end(), 0)
 #define vecCount(data, key) count(data.begin(), data.end(), key)
 #define Reverse(data) reverse(data.begin(), data.end())
+#define stringLower(data) transform(data.begin(), data.end(), data.begin(), ::tolower)
+#define stringUpper(data) transform(data.begin(), data.end(), data.begin(), ::toupper)
 
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
@@ -61,19 +63,66 @@ typedef set<double> sd;
 #define debug(x) cerr << x << endl;
 #define here fprintf(stderr, "====I am Here====\n");
 
+void SieveOfEratosthenes(ll n)
+{
+    bool prime[n + 1];
+    memset(prime, true, sizeof(prime));
+    for (ll p = 2; p * p <= n; p++)
+    {
+        if (prime[p] == true)
+        {
+            {
+                for (ll i = p * p; i <= n; i += p)
+                {
+                    prime[i] = false;
+                }
+            }
+        }
+    }
+
+    for (ll p = 2; p <= n; p++)
+    {
+        if (prime[p])
+        {
+            cout << p << " ";
+        }
+    }
+}
+
 void Boom()
 {
-    ll n;
-    string s;
-    cin >> n >> s;
+
+    // ll n;
+    // string s;
+    // cin >> n >> s;
+    // stringUpper(s);
+    // if (s[0] != 'M')
+    // {
+    //     no;
+    //     return;
+    // }
+    // set<char> st;
+    // for (auto u : s)
+    // {
+    //     st.in(u);
+    // }
+    // if (st.size() < 4)
+    // {
+    //     no;
+    //     return;
+    // }
+    // for (auto u : st)
+    // {
+    //     cout << u << endl;
+    // }
+    SieveOfEratosthenes(1000000);
 }
 
 int main()
 {
     Boost;
-
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--)
     {
         Boom();
