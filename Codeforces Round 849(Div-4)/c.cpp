@@ -70,7 +70,7 @@ void Boom()
         }
         else
         {
-            if (i - mp[a] & 1)
+            if ((i - mp[a]) & 1)
             {
                 ok = 0;
                 break;

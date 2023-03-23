@@ -56,18 +56,16 @@ typedef set<string> ss;
 
 void Boom()
 {
+    int x = 4 & 1;
+    int y = 5 & 1;
+    cout << x << " " << y << endl;
 }
 
 int main()
 {
     Boost;
 
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        Boom();
-    }
+    Boom();
 
     return 0;
 }
