@@ -56,11 +56,10 @@ typedef set<string> ss;
 
 void Boom()
 {
-    int n;
+    int n, ok = 1;
     cin >> n;
     string s;
     cin >> s;
-    int ok = 1;
     map<char, int> mp;
     for (int i = 0; i < s.size(); i++)
     {
