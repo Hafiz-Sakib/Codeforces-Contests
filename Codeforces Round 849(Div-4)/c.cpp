@@ -64,18 +64,19 @@ void Boom()
     map<char, int> mp;
     for (int i = 0; i < s.size(); i++)
     {
-        if (mp.find(s[i]) == mp.end())
+        char a = s[i];
+        if (mp.find(a) == mp.end())
         {
-            mp[s[i]] = i;
+            mp[a] = i;
         }
         else
         {
-            if (i - mp[s[i]] & 1)
+            if (i - mp[a] & 1)
             {
                 ok = 0;
                 break;
             }
-            mp[s[i]] = i;
+            mp[a] = i;
         }
     }
     ok ? yes : no;
