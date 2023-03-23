@@ -63,10 +63,15 @@ void Boom()
     {
         cin >> v[i];
     }
+
     psum[0] = v[0];
+
+    // first value of prefix sum will be always first vlue of given array.
+
     for (int i = 1; i < n; i++)
     {
         psum[i] = v[i] + psum[i - 1];
+        // calculating the sum from starting of (1st index of given array + 0th index of prefix sum array)
     }
 }
 
