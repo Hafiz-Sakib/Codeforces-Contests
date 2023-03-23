@@ -66,14 +66,7 @@ void Boom()
     ll m = 0, b = 0;
     for (int i = 0; i < n; i++)
     {
-        if (v[i] & 1)
-        {
-            b += v[i];
-        }
-        else
-        {
-            m += v[i];
-        }
+        (v[i] & 1) ? b += v[i] : m += v[i];
     }
     m > b ? yes : no;
 }
