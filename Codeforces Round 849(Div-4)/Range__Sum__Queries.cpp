@@ -69,18 +69,23 @@ void Boom()
     {
         psum[i] = v[i] + psum[i - 1];
     }
-    ll l, r;
-    cin >> l >> r;
-    if (l == 0)
+    ll q;
+    cin >> q;
+    while (q--)
     {
-        // In this Asking for Sum from first Index.That means rth Index of Prefix Sum Will be ans.
-        // We don't Have to Subtract anything.
-        cout << psum[r] << endl;
-    }
-    else
-    {
-        // In this Case take sum of (0--r) then Subtract (0--l)(ami jodi l er ager index er value ta subtract kori taholei ager sob sum baad hoye jaabe)
-        cout << psum[r] - psum[l - 1];
+        ll l, r;
+        cin >> l >> r;
+        if (l == 0)
+        {
+            // In this Asking for Sum from first Index.That means rth Index of Prefix Sum Will be ans.
+            // We don't Have to Subtract anything.
+            cout << psum[r] << endl;
+        }
+        else
+        {
+            // In this Case take sum of (0--r) then Subtract (0--l)(ami jodi l er ager index er value ta subtract kori taholei ager sob sum baad hoye jaabe)
+            cout << psum[r] - psum[l - 1];
+        }
     }
 }
 
