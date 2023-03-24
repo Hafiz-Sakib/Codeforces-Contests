@@ -58,7 +58,8 @@ void Boom()
 {
     ll n;
     cin >> n;
-    vi v(n), psum(n);
+    vector<ll> v(n, 0);
+    vector<ll> psum(n, 0);
     for (int i = 0; i < n; i++)
     {
         cin >> v[i];
