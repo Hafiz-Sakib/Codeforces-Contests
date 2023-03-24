@@ -56,16 +56,43 @@ typedef set<string> ss;
 
 void Boom()
 {
-    int x = 4 & 1;
-    int y = 5 & 1;
-    cout << x << " " << y << endl;
+    ll n;
+    cin >> n;
+    vi v(n), psum(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i];
+    }
+    psum[0] = v[0];
+    for (int i = 1; i < n; i++)
+    {
+        psum[i] = v[i] + psum[i - 1];
+    }
+    ll l, r;
+    cin >> l >> r;
+    if (l == 0)
+    {
+        // In this Asking for Sum from first Index.That means rth Index of Prefix Sum Will be ans.
+        // We don't Have to Subtract anything.
+        cout << psum[r] << endl;
+    }
+    else
+    {
+        // In this Case take sum of (0--r) then Subtract (0--l)
+        cout << psum[r] - psum[l - 1];
+    }
 }
 
 int main()
 {
     Boost;
 
-    Boom();
+    int t = 1;
+
+    while (t--)
+    {
+        Boom();
+    }
 
     return 0;
 }
