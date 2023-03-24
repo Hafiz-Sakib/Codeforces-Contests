@@ -56,6 +56,27 @@ typedef set<string> ss;
 
 void Boom()
 {
+    ll n, q;
+    cin >> n >> q;
+    vi v(n + 1, 0), s(n + 1, 0);
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> v[i];
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        s[i] = s[i - 1] + v[i];
+    }
+    while (q--)
+    {
+        ll l, r, k, sum = s[n];
+        cin >> l >> r >> k;
+
+        sum -= (s[r] - s[l - 1]);
+        sum += ((r - l + 1) * k);
+
+        (sum & 1) ? yes : no;
+    }
 }
 
 int main()
