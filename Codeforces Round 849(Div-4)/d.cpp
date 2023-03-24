@@ -81,13 +81,13 @@ void Boom()
         {
             ans = (r - l + 1) * k + sum - psum[r - 1];
         }
-        if (ans % 2 == 0)
+        if (ans & 1)
         {
-            no;
+            yes;
         }
         else
         {
-            yes;
+            no;
         }
     }
 }
