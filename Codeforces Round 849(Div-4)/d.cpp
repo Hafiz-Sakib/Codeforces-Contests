@@ -71,7 +71,7 @@ void Boom()
     }
     while (q--)
     {
-        ll ans = 0, l, r, k, sum = psum[n];
+        ll ans = 0, l, r, k, sum = psum[n - 1];
         cin >> l >> r >> k;
         if (l != 1)
         {
