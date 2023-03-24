@@ -1,5 +1,3 @@
-// Problem Link : https://codeforces.com/contest/1807/problem/D
-
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -58,37 +56,6 @@ typedef set<string> ss;
 
 void Boom()
 {
-    int n, q;
-    cin >> n >> q;
-    vector<ll> a(n + 1, 0);
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> a[i];
-    }
-    vector<ll> pref(n + 1, 0);
-    for (int i = 1; i <= n; i++)
-    {
-        pref[i] = pref[i - 1] + a[i];
-    }
-
-    while (q--)
-    {
-        ll l, r;
-        cin >> l >> r;
-        ll k;
-        cin >> k;
-        ll sum = pref[n];
-        sum -= (pref[r] - pref[l - 1]);
-        sum += ((r - l + 1) * k);
-        if (sum % 2 != 0)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
-    }
 }
 
 int main()
