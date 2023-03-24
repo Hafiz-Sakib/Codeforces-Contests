@@ -56,38 +56,35 @@ typedef set<string> ss;
 
 void Boom()
 {
-    ll n, q;
+    int n, q;
     cin >> n >> q;
-    vector<ll> v(n, 0);
-    vector<ll> psum(n, 0);
-    for (int i = 0; i < n; i++)
+    vector<ll> a(n + 1, 0);
+    for (int i = 1; i <= n; i++)
     {
-        cin >> v[i];
+        cin >> a[i];
     }
-    psum[0] = v[0];
-    for (int i = 1; i < n; i++)
+    vector<ll> pref(n + 1, 0);
+    for (int i = 1; i <= n; i++)
     {
-        psum[i] = v[i] + psum[i - 1];
+        pref[i] = pref[i - 1] + a[i];
     }
+
     while (q--)
     {
-        ll ans = 0, l, r, k, sum = psum[n - 1];
-        cin >> l >> r >> k;
-        if (l != 1)
+        ll l, r;
+        cin >> l >> r;
+        ll k;
+        cin >> k;
+        ll sum = pref[n];
+        sum -= (pref[r] - pref[l - 1]);
+        sum += ((r - l + 1) * k);
+        if (sum % 2 != 0)
         {
-            ans = (r - l + 1) * k + sum - psum[r - 1] + psum[l - 2];
+            cout << "YES" << endl;
         }
         else
         {
-            ans = (r - l + 1) * k + sum - psum[r - 1];
-        }
-        if (ans & 1)
-        {
-            yes;
-        }
-        else
-        {
-            no;
+            cout << "NO" << endl;
         }
     }
 }
