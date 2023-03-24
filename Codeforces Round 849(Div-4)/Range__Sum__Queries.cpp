@@ -79,7 +79,7 @@ void Boom()
     }
     else
     {
-        // In this Case take sum of (0--r) then Subtract (0--l)
+        // In this Case take sum of (0--r) then Subtract (0--l)(ami jodi l er ager index er value ta subtract kori taholei ager sob sum baad hoye jaabe)
         cout << psum[r] - psum[l - 1];
     }
 }
