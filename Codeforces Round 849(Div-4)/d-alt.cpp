@@ -78,7 +78,7 @@ void Boom()
         ll sum = pref[n];
         sum -= (pref[r] - pref[l - 1]);
         sum += ((r - l + 1LL) * k);
-        if (sum % 2LL == 1LL)
+        if (sum % 2 != 0)
         {
             cout << "YES" << endl;
         }
