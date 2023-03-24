@@ -58,7 +58,8 @@ void Boom()
 {
     ll n, q;
     cin >> n >> q;
-    vi v(n), psum(n);
+    vector<ll> v(n, 0);
+    vector<ll> psum(n, 0);
     for (int i = 0; i < n; i++)
     {
         cin >> v[i];
@@ -70,18 +71,23 @@ void Boom()
     }
     while (q--)
     {
-        ll l, r, k, sum = 0;
+        ll ans = 0, l, r, k, sum = psum[n];
         cin >> l >> r >> k;
-        sum = psum[n];
-        sum -= (psum[r] - psum[l - 1]);
-        sum += ((r - l + 1LL) * k);
-        if (sum % 2LL == 1LL)
+        if (l != 1)
         {
-            yes;
+            ans = (r - l + 1) * k + sum - psum[r - 1] + psum[l - 2];
         }
         else
         {
+            ans = (r - l + 1) * k + sum - psum[r - 1];
+        }
+        if (ans % 2 == 0)
+        {
             no;
+        }
+        else
+        {
+            yes;
         }
     }
 }
