@@ -54,19 +54,21 @@ typedef set<string> ss;
     cin.tie(NULL);                    \
     cout.tie(NULL)
 
-void Boom()
-{
-}
-
 int main()
 {
     Boost;
-
+    string s = "31415926535897932384626433832795";
     int t = 1;
     cin >> t;
-    while (t--)
+    for (int i = 0; i < t; ++i)
     {
-        Boom();
+        int v, ans = 1, n = s[i] - '0';
+        for (int j = 0; j < n; ++j)
+        {
+            cin >> v;
+            ans *= v;
+        }
+        cout << ans << endl;
     }
 
     return 0;
