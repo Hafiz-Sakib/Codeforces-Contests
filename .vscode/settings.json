@@ -16,6 +16,7 @@
     "list": "cpp",
     "vector": "cpp",
     "initializer_list": "cpp",
-    "regex": "cpp"
+    "regex": "cpp",
+    "utility": "cpp"
   }
 }
