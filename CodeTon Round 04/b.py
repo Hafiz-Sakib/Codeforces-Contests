@@ -1,0 +1,1 @@
+for n in[*map(int,open(0))][1:]:print(*([-1],[len(s:=f'{n//2:b}')]+[int(x)+1for x in s])[n%2])
