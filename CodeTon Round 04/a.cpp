@@ -56,13 +56,12 @@ typedef set<string> ss;
 
 void Boom()
 {
-    ll n, ok = 0;
+    ll n, ok = 0, a;
     cin >> n;
-    vi v(n, 0);
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
-        cin >> v[i];
-        if (i >= v[i] - 1)
+        cin >> a;
+        if (i >= a)
         {
             ok = 1;
         }
