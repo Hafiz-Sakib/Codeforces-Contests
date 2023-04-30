@@ -7,13 +7,7 @@
 *.o
 *.so
 *.bin
-*.cph
 *.prob
-*.obj
-bin/
-/bin
-/OBJ
-
 
 # Packages #
 ############
