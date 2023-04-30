@@ -56,18 +56,31 @@ typedef set<string> ss;
 
 void Boom()
 {
+    int n;
+    cin >> n;
+    vi v(n + 1, 0);
+
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> v[i];
+    }
+
+    vi p(n + 1, 0);
+
+    for (int i = 1; i <= n; i++)
+    {
+        p[i] = p[i - 1] + v[i];
+    }
+
+    for (int i = 1; i <= n; i++)
+    {
+        cout << p[i] << space;
+    }
 }
 
 int main()
 {
     Boost;
-
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        Boom();
-    }
-
+    Boom();
     return 0;
 }
