@@ -66,7 +66,7 @@ void Boom()
     for (int i = 1; i <= n; i++)
     {
         p[i] = p[i - 1];
-        if (i - 2 > 0 and v[i - 2] >= v[i - 1] && v[i - 1] >= v[i])
+        if (i - 2 > 0 && v[i - 2] >= v[i - 1] && v[i - 1] >= v[i])
         {
             p[i]++;
         }
