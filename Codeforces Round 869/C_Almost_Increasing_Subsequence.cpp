@@ -46,7 +46,7 @@ typedef set<string> ss;
 #define stringUpper(data) transform(data.begin(), data.end(), data.begin(), ::toupper)
 #define ignore cin.ignore(numeric_limits<streamsize>::max(), '\n')
 
-#define debug(x) cerr << x << endl;
+#define def(x) cerr << x << endl;
 #define here fprintf(stderr, "====I am Here====\n");
 
 #define Boost                         \
@@ -56,25 +56,41 @@ typedef set<string> ss;
 
 void Boom()
 {
-    int n;
-    cin >> n;
-    vi v(n + 1, 0);
-
+    int n, q;
+    cin >> n >> q;
+    vi v(n + 1, 0), p(n + 1, 0);
     for (int i = 1; i <= n; i++)
     {
         cin >> v[i];
     }
-
-    vi p(n + 1, 0);
-
     for (int i = 1; i <= n; i++)
     {
-        p[i] = p[i - 1] + v[i];
+        p[i] = p[i - 1];
+        if (i - 2 > 0 and v[i - 2] >= v[i - 1] && v[i - 1] >= v[i])
+        {
+            p[i]++;
+        }
     }
 
-    for (int i = 1; i <= n; i++)
+    while (q--)
     {
-        cout << p[i] << space;
+        ll l, r;
+        cin >> l >> r;
+        ll sz = r - l + 1;
+        if (sz < 3)
+        {
+            cout << sz << endl;
+            continue;
+        }
+        ll f = p[r] - p[l - 1];
+        for (int i = l; i <= l + 1; i++)
+        {
+            if (i - 2 > 0 and v[i - 2] >= v[i - 1] && v[i - 1] >= v[i])
+            {
+                f--;
+            }
+        }
+        cout << abs(sz - f) << endl;
     }
 }
 
