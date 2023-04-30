@@ -68,9 +68,9 @@ void Boom()
     }
     else
     {
-        for (ll i = 0; i < (n / 2); i++)
+        for (ll i = 2; i <= n; i += 2)
         {
-            cout << 2 * i + 2 << ' ' << 2 * i + 1 << ' ';
+            cout << i << ' ' << (i - 1) << ' ';
         }
         cout << endl;
     }
