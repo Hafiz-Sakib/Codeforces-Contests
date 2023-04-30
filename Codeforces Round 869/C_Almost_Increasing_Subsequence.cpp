@@ -76,7 +76,7 @@ void Boom()
     {
         ll l, r;
         cin >> l >> r;
-        ll sz = r - l + 1;
+        ll sz = (r - l) + 1;
         if (sz < 3)
         {
             cout << sz << endl;
