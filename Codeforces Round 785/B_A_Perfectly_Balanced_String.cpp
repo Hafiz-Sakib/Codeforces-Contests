@@ -60,16 +60,19 @@ void Boom()
 
     for (int i = 0; i < n; i++)
     {
-        if (last[s[i]] == -1)
+        char c = s[i];
+
+        if (last[c] == -1)
         {
-            last[s[i]] = i;
+            last[c] = i;
         }
         else
         {
-            mn_gap = min(mn_gap, i - last[s[i]] - 1);
-            last[s[i]] = i;
+            mn_gap = min(mn_gap, i - last[c] - 1);
+            last[c] = i;
         }
-        st.insert(s[i]);
+
+        st.insert(c);
     }
 
     int chars = st.size();
