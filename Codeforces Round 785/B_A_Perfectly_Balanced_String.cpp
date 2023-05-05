@@ -40,20 +40,41 @@ void Boom()
 {
     string s;
     cin >> s;
-    set<char> diff;
-    for (auto c : s)
+
+    int n = s.size();
+
+    if (count(all(s), s[0]) == n)
     {
-        diff.insert(c);
+        yes;
+        return;
     }
-    int ok = 1;
-    for (int i = 0; i < s.size(); i++)
+
+    set<char> st;
+    int mn_gap = INT_MAX;
+    map<char, int> last;
+
+    for (char c = 'a'; c <= 'z'; c++)
     {
-        if (s[i] != s[i % diff.size()])
+        last[c] = -1;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (last[s[i]] == -1)
         {
-            ok = 0;
+            last[s[i]] = i;
         }
+        else
+        {
+            mn_gap = min(mn_gap, i - last[s[i]] - 1);
+            last[s[i]] = i;
+        }
+        st.insert(s[i]);
     }
-    ok ? yes : no;
+
+    int chars = st.size();
+
+    (mn_gap < n && mn_gap + 1 < chars) ? no : yes;
 }
 
 int main()
