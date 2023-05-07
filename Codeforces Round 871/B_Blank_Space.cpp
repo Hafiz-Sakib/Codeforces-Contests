@@ -13,23 +13,7 @@ typedef unsigned long long ull;
 
 typedef vector<ll> vi;
 typedef vector<string> vs;
-
-#define space ' '
 #define endl "\n"
-#define yes cout << "YES\n"
-#define no cout << "NO\n"
-
-#define b() begin()
-#define e() end()
-#define all(data) data.begin(), data.end()
-#define rall(data) data.rbegin(), data.rend()
-
-#define debug(x) cerr << x << endl;
-#define here fprintf(stderr, "====I am Here====\n");
-#define setp(n) fixed << setprecision(n)
-
-const double eps = 1e-12;
-const int mx = 1e8 + 123;
 
 #define Boost                         \
     ios_base::sync_with_stdio(false); \
@@ -45,23 +29,21 @@ void Boom()
     {
         cin >> v[i];
     }
-    int maxi = 0;
-    int now = 0;
 
-    for (int i = 0; i < n; i++)
+    ll got = 0, maxi = 0;
+
+    for (auto u : v)
     {
-        if (v[i] == 0)
+        if (u == 0)
         {
-            now++;
+            got++;
         }
         else
         {
-            maxi = max(maxi, now);
-            now = 0;
+            got = 0;
         }
+        maxi = max(maxi, got);
     }
-
-    maxi = max(maxi, now);
 
     cout << maxi << endl;
 }
