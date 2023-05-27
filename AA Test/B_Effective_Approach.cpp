@@ -60,22 +60,25 @@ const double eps = 1e-12;
     cout.tie(NULL)
 void Boom()
 {
-    ll n, m, i, j, cntv = 0, cnts = 0;
+    ll n, vasya = 0, petya = 0;
     cin >> n;
-    vi a(n), b(n), pos(n);
-    for (i = 0; i < n; i++)
+    vi a(n + 1), b(n + 1);
+    mii pos;
+    for (int i = 1; i <= n; i++)
     {
         cin >> a[i];
-        pos[a[i]] = i + 1;
+        pos[a[i]] = i;
     }
-    cin >> m;
-    for (i = 0; i < m; i++)
+    int q;
+    cin >> q;
+    while (q--)
     {
-        cin >> b[i];
-        cntv += pos[b[i]];
-        cnts += n - pos[b[i]] + 1;
+        int target;
+        cin >> target;
+        vasya += pos[target];
+        petya += (n - pos[target] + 1);
     }
-    cout << cntv << " " << cnts;
+    cout << vasya << ' ' << petya;
 }
 
 int main()
