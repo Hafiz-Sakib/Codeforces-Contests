@@ -1,5 +1,4 @@
 // https://codeforces.com/contest/1840/problem/c
-
 // Bismillahir Rahmanir Rahim
 /*
 
