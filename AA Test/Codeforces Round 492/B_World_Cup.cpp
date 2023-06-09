@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/996/problem/D
+// https://codeforces.com/contest/996/problem/B
 
 // Bismillahir Rahmanir Rahim
 /*
@@ -65,33 +65,39 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    map<ll, ll> mp;
-    ll a[100000 + 123];
-    ll i, j, k, n, m, ans = 0;
+    int n;
     cin >> n;
-    n *= 2;
-    for (i = 1; i <= n; i++)
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
     {
-        cin >> k;
-        if (mp.find(k) == mp.end())
-        {
-            mp[k] = mp.size();
-        }
-        a[i] = mp[k];
+        cin >> a[i];
     }
-    for (i = n; i >= 1; i--)
+    int j = 0;
+    for (int i = 0;; i++)
     {
-        for (j = i + 1; j <= n; j++)
+        if (a[j] <= i)
         {
-            ans += (a[j] < a[i]);
+            cout << j + 1 << '\n';
+            break;
+        }
+        j += 1;
+        if (j >= n)
+        {
+            j = 0;
         }
     }
-    cout << ans << endl;
 }
 
 int main()
 {
     Boost;
-    Boom();
+
+    int t = 1;
+    //   cin >> t;
+    while (t--)
+    {
+        Boom();
+    }
+
     return 0;
 }
