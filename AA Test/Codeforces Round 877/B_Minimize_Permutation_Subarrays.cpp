@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/1840/problem/c
+// https://codeforces.com/contest/1838/problem/B
 
 // Bismillahir Rahmanir Rahim
 /*
@@ -65,33 +65,49 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    ll n, k, q;
-    cin >> n >> k >> q;
-    vi a(n);
-    for (int i = 0; i < n; i++)
+    int n;
+    cin >> n;
+    vi a(n + 1);
+    for (int i = 1; i <= n; i++)
     {
         cin >> a[i];
     }
-    ll ans = 0;
-    ll cons = 0;
-    for (int i = 0; i <= n - 1; i++)
+
+    vi pos(n + 1, 0);
+    for (int i = 1; i <= n; i++)
     {
-        if (a[i] <= q)
-        {
-            cons++;
-            if (i == n - 1 or a[i + 1] > q)
-            {
-                if (cons >= k)
-                {
-                    ll x = cons - k + 1LL;
-                    ll add = (x * (x + 1LL)) / 2LL;
-                    ans += add;
-                }
-                cons = 0;
-            }
-        }
+        pos[a[i]] = i;
     }
-    cout << ans << endl;
+
+    int l, r;
+
+    if (pos[n] > min(pos[1], pos[2]) and pos[n] < max(pos[1], pos[2]))
+    {
+        l = pos[1];
+        r = pos[2];
+    }
+    else if (pos[n] < pos[1] and pos[2] > pos[1])
+    {
+        l = pos[1];
+        r = pos[n];
+    }
+    else if (pos[n] < pos[2] and pos[2] < pos[1])
+    {
+        l = pos[2];
+        r = pos[n];
+    }
+    else if (pos[n] > pos[2] and pos[2] > pos[1])
+    {
+        l = pos[2];
+        r = pos[n];
+    }
+    else if (pos[n] > pos[1] and pos[2] < pos[1])
+    {
+        l = pos[1];
+        r = pos[n];
+    }
+
+    printf("%d %d\n", l, r);
 }
 
 int main()

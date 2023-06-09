@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/1840/problem/c
+// https://codeforces.com/contest/1838/problem/A
 
 // Bismillahir Rahmanir Rahim
 /*
@@ -65,32 +65,17 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    ll n, k, q;
-    cin >> n >> k >> q;
+    int n;
+    cin >> n;
     vi a(n);
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
-    ll ans = 0;
-    ll cons = 0;
-    for (int i = 0; i <= n - 1; i++)
-    {
-        if (a[i] <= q)
-        {
-            cons++;
-            if (i == n - 1 or a[i + 1] > q)
-            {
-                if (cons >= k)
-                {
-                    ll x = cons - k + 1LL;
-                    ll add = (x * (x + 1LL)) / 2LL;
-                    ans += add;
-                }
-                cons = 0;
-            }
-        }
-    }
+    sort(all(a));
+
+    ll ans = (a[0] < 0) ? a[0] : a[n - 1];
+
     cout << ans << endl;
 }
 
