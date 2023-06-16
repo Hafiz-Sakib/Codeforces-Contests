@@ -99,42 +99,47 @@ void Sieve(int n)
 
 void Boom()
 {
-    ull q;
-
+    long long int x = -1, i, q;
     cin >> q;
 
-    ull s = q, i = 0;
-    vector<ull> divs;
-
-    Sieve(sqrt(q + 10));
-
-    ull n = primes.size();
-    while (i < n && primes[i] * primes[i] <= q)
+    for (i = 2; i < mx; i++)
     {
-        if (q % primes[i] == 0)
+        if (q % i == 0)
         {
-            divs.pb(primes[i]);
-            q /= primes[i];
+            if (x != -1)
+            {
+                if (q / i == 1LL)
+                {
+                    printf("2\n");
+                    return;
+                }
+                else
+                {
+                    cout << "1\n"
+                         << x * i << "\n";
+                    return;
+                }
+            }
+            else
+            {
+                if (q / i == 1LL)
+                {
+                    cout << "1\n0\n";
+                    return;
+                }
+            }
+            x = i;
+            q /= i;
+            i--;
         }
-        else
-            i++;
     }
-    if (q > 1 && q != s)
-        divs.pb(q);
-
-    if (divs.size() > 2)
+    if (x == -1)
     {
-        cout << 1 << "\n"
-             << divs[0] * divs[1] << "\n";
-    }
-    else if (s == q)
-    {
-        cout << 1 << "\n"
-             << 0 << "\n";
+        cout << "1\n0\n";
     }
     else
     {
-        cout << 2 << "\n";
+        printf("2\n");
     }
 }
 
