@@ -1,6 +1,3 @@
-// https://codeforces.com/contest/118/problem/B
-
-// Bismillahir Rahmanir Rahim
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -64,67 +61,44 @@ const double eps = 1e-12;
     cin.tie(NULL);                    \
     cout.tie(NULL)
 
-void Boom()
-{
-    int i, j, k, l, n;
-    scanf("%d", &n);
+vector<ll> lucky;
 
-    for (i = 1; i <= n + 1; i++)
+void make_lucky(ll n)
+{
+    if (n > 44444444444)
     {
-        for (j = 0; j < n + 1 - i; j++)
-        {
-            printf("  ");
-        }
-        for (k = 0; k < i; k++)
-        {
-            if (k == 0)
-            {
-                printf("%d", k);
-                continue;
-            }
-            printf(" %d", k);
-        }
-        for (l = k - 2; l >= 0; l--)
-        {
-            printf(" %d", l);
-        }
-        printf("\n");
+        return;
     }
-    for (i = n; i > 0; i--)
+    lucky.push_back(n);
+    make_lucky(n * 10 + 4);
+    make_lucky(n * 10 + 7);
+}
+
+bool cnt(ll n)
+{
+    int f = 0, s = 0;
+    while (n > 0)
     {
-        for (j = 0; j < n + 1 - i; j++)
-        {
-            printf("  ");
-        }
-        for (k = 0; k < i; k++)
-        {
-            if (k == 0)
-            {
-                printf("%d", k);
-                continue;
-            }
-            printf(" %d", k);
-        }
-        for (l = k - 2; l >= 0; l--)
-        {
-            printf(" %d", l);
-        }
-        if (i == 1)
-        {
-            return;
-        }
-        printf("\n");
+        f += (n % 10 == 4);
+        s += (n % 10 == 7);
+        n /= 10;
     }
+    return (s == f);
 }
 
 int main()
 {
-    Boost;
+    make_lucky(0);
+    sort(all(lucky));
+    ll n;
+    cin >> n;
 
-    int t = 1;
-    while (t--)
+    for (int i = 1; i < lucky.size(); i++)
     {
-        Boom();
+        if (cnt(lucky[i]) && lucky[i] >= n)
+        {
+            return cout << lucky[i], 0;
+        }
     }
 
     return 0;

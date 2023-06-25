@@ -1,5 +1,3 @@
-// https://codeforces.com/contest/149/problem/C
-
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -63,45 +61,44 @@ const double eps = 1e-12;
     cin.tie(NULL);                    \
     cout.tie(NULL)
 
-#define ff first
-#define ss second
-void Boom()
+vector<ll> lucky;
+
+void make_lucky(ll n)
 {
-
-    ll n, i;
-    pair<ll, ll> a[100005];
-
-    cin >> n;
-
-    for (i = 0; i < n; i++)
+    if (n > 44444444444)
     {
-        cin >> a[i].ff;
-        a[i].ss = i + 1;
+        return;
     }
+    lucky.push_back(n);
+    make_lucky(n * 10 + 4);
+    make_lucky(n * 10 + 7);
+}
 
-    sort(a, a + n);
-
-    if (n & 1)
-        cout << (n + 1) / 2 << "\n";
-    else
-        cout << n / 2 << "\n";
-    for (i = 0; i < n; i += 2)
-        cout << a[i].ss << " ";
-    cout << "\n";
-
-    cout << n / 2 << "\n";
-    for (i = 1; i < n; i += 2)
-        cout << a[i].ss << " ";
+bool cnt(ll n)
+{
+    int f = 0, s = 0;
+    while (n > 0)
+    {
+        f += (n % 10 == 4);
+        s += (n % 10 == 7);
+        n /= 10;
+    }
+    return (s == f);
 }
 
 int main()
 {
-    Boost;
+    make_lucky(0);
+    sort(all(lucky));
+    ll n;
+    cin >> n;
 
-    int t = 1;
-    while (t--)
+    for (int i = 1; i < lucky.size(); i++)
     {
-        Boom();
+        if (cnt(lucky[i]) && lucky[i] >= n)
+        {
+            return cout << lucky[i], 0;
+        }
     }
 
     return 0;
