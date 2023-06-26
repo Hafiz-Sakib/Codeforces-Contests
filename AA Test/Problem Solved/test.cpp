@@ -134,30 +134,6 @@ void PrimeFactorization(ll n)
         PrimeFactors.push_back(n);
     }
 }
-
-vector<vector<ll>> PrimeFactors1toN(mx);
-
-void PrimeFactorization(ll n)
-{
-    // Call Sieve Function First
-    for (auto p : primes)
-    {
-        for (int i = p; i <= n; i += p)
-        {
-            PrimeFactors1toN[i].push_back(p);
-        }
-    }
-
-    // for (int i = 1; i <= n; i++)
-    // {
-    //     cout << i << " : ";
-    //     for (auto u : PrimeFactors1toN[i])
-    //     {
-    //         cout << u << ' ';
-    //     }
-    //     cout << endl;
-    // }
-}
 vector<ll> Divisors;
 
 void Divisor(ll n)
@@ -179,30 +155,6 @@ void Divisor(ll n)
     sort(Divisors.begin(), Divisors.end());
 }
 
-vector<vector<ll>> Divisors1toN(mx);
-
-void OneToNDivisors(ll n)
-{
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = i; j <= n; j += i)
-        {
-            Divisors1toN[j].push_back(i);
-        }
-    }
-
-    // for (int i = 1; i <= n; i++)
-    // {
-    //     cout << i << " : ";
-
-    //     for (auto u : Divisors1toN[i])
-    //     {
-    //         cout << u << ' ';
-    //     }
-
-    //     cout << endl;
-    // }
-}
 int NOD(ll n)
 {
     // This function will return how many divisors in (n) using Prime Factorization
