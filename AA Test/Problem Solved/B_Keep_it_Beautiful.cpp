@@ -50,7 +50,7 @@ typedef set<string> ss;
 #define gcd(a, b) __gcd(a, b)
 #define lcm(a, b) ((a * b) / gcd(a, b))
 #define mod 1000000007
-const int maxi_cost = 1e8 + 123;
+const int mx = 1e8 + 123;
 const double eps = 1e-12;
 
 #define debug(x) cerr << x << endl;
@@ -63,45 +63,80 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    int n, m;
-    cin >> n >> m;
-
-    priority_queue<int> maxi, mini;
-
-    int x;
-    for (int i = 0; i < m; i++)
+    int n;
+    cin >> n;
+    vector<int> a(n), taken;
+    string ans = "";
+    bool broken = false;
+    for (int i = 0; i < n; i++)
     {
-        cin >> x;
-        maxi.push(x);
-        mini.push(-1 * x);
+        cin >> a[i];
     }
-    int mini_cost = 0, maxi_cost = 0;
-    while (n--)
+    for (int i = 0; i < n; i++)
     {
-        int currMin = (-1 * mini.top());
-        mini.pop();
-        mini_cost += currMin;
-        currMin--;
-        if (currMin != 0)
+        if (taken.empty())
         {
-            mini.push(-1 * currMin);
+            ans.push_back('1');
+            taken.push_back(a[i]);
         }
-
-        int currMax = maxi.top();
-        maxi.pop();
-        maxi_cost += currMax;
-        currMax--;
-        if (currMax != 0)
+        else
         {
-            maxi.push(currMax);
+            if (broken)
+            {
+                if (a[i] < taken.back())
+                {
+                    ans.push_back('0');
+                }
+                else
+                {
+                    if (a[i] > taken[0])
+                    {
+                        ans.push_back('0');
+                    }
+                    else
+                    {
+                        ans.push_back('1');
+                        taken.push_back(a[i]);
+                    }
+                }
+            }
+            else
+            {
+                if (a[i] >= taken.back())
+                {
+                    ans.push_back('1');
+                    taken.push_back(a[i]);
+                }
+                else
+                {
+                    if (a[i] > taken[0])
+                    {
+                        ans.push_back('0');
+                    }
+                    else
+                    {
+                        broken = true;
+                        ans.push_back('1');
+                        taken.push_back(a[i]);
+                    }
+                }
+            }
         }
     }
-    cout << maxi_cost << " " << mini_cost;
+
+    cout << ans << endl;
 }
 
 int main()
 {
     Boost;
-    Boom();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        Boom();
+    }
+
     return 0;
 }
