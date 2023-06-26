@@ -147,16 +147,6 @@ void PrimeFactorization(ll n)
             PrimeFactors1toN[i].push_back(p);
         }
     }
-
-    // for (int i = 1; i <= n; i++)
-    // {
-    //     cout << i << " : ";
-    //     for (auto u : PrimeFactors1toN[i])
-    //     {
-    //         cout << u << ' ';
-    //     }
-    //     cout << endl;
-    // }
 }
 vector<ll> Divisors;
 
@@ -190,18 +180,6 @@ void OneToNDivisors(ll n)
             Divisors1toN[j].push_back(i);
         }
     }
-
-    // for (int i = 1; i <= n; i++)
-    // {
-    //     cout << i << " : ";
-
-    //     for (auto u : Divisors1toN[i])
-    //     {
-    //         cout << u << ' ';
-    //     }
-
-    //     cout << endl;
-    // }
 }
 int NOD(ll n)
 {
@@ -231,17 +209,6 @@ int NOD(ll n)
     }
     return ans;
 }
-ll SNOD(ll n)
-{
-    ll ans = 0, u = sqrt(n);
-    for (int i = 1; i <= u; i++)
-    {
-        ans += (n / i) - i;
-    }
-    ans *= 2;
-    ans += u;
-    return ans;
-}
 ll SODFormula(ll n)
 {
     ll ans = 1;
@@ -266,6 +233,17 @@ ll SODFormula(ll n)
     {
         ans *= (n + 1);
     }
+    return ans;
+}
+ll SNOD(ll n)
+{
+    ll ans = 0, u = sqrt(n);
+    for (int i = 1; i <= u; i++)
+    {
+        ans += (n / i) - i;
+    }
+    ans *= 2;
+    ans += u;
     return ans;
 }
 int EulerPhi(int n)
@@ -296,85 +274,46 @@ int EulerPhi(int n)
 
     return ans;
 }
-// void bfs(int src)
-// {
-//     queue<int> q;
-//     q.push(src);
-//     color[src] = true;
-//     level[src] = 0;
-//     while (!q.empty())
-//     {
-//         int curr = q.front();
-//         q.pop();
-//         for (auto child : adj[curr])
-//         {
-//             if (color[child] == 0)
-//             {
-//                 q.push(child);
-//                 level[child] = level[curr] + 1; // current node
-//                 color[child] = 1;
-//             }
-//         }
-//     }
-// }
-// void dfs(int v)
-// {
-//     vis[v] = 1;
-//     // cout<<v<< "->";
-//     for (auto child : adj[v])
-//     {
-//         if (!vis[child])
-//             dfs(child);
-//     }
-// }
-void normal(ll &a)
+
+inline void normal(ll &a)
 {
     a %= mod;
     (a < 0) && (a += mod);
 }
-ll modMul(ll a, ll b)
+inline ll modMul(ll a, ll b)
 {
     a %= mod, b %= mod;
     normal(a), normal(b);
     return (a * b) % mod;
 }
-ll modAdd(ll a, ll b)
+inline ll modAdd(ll a, ll b)
 {
     a %= mod, b %= mod;
     normal(a), normal(b);
     return (a + b) % mod;
 }
-ll modSub(ll a, ll b)
+inline ll modSub(ll a, ll b)
 {
     a %= mod, b %= mod;
     normal(a), normal(b);
     a -= b;
     normal(a);
-    return a;
+    return a % mod;
 }
-ll modPow(ll b, ll p)
+inline ll modPow(ll b, ll p)
 {
     ll r = 1;
     while (p)
     {
         if (p & 1)
-        {
             r = modMul(r, b);
-        }
         b = modMul(b, b);
         p >>= 1;
     }
     return r;
 }
-ll modInverse(ll a)
-{
-    return modPow(a, mod - 2);
-}
-ll modDiv(ll a, ll b)
-{
-    return modMul(a, modInverse(b));
-}
-
+inline ll modInverse(ll a) { return modPow(a, mod - 2); }
+inline ll modDiv(ll a, ll b) { return modMul(a, modInverse(b)); }
 void Boom()
 {
 }
