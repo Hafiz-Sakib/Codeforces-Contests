@@ -329,28 +329,28 @@ int EulerPhi(int n)
 // }
 inline void normal(ll &a)
 {
-    a %= MOD;
-    (a < 0) && (a += MOD);
+    a %= mod;
+    (a < 0) && (a += mod);
 }
 inline ll modMul(ll a, ll b)
 {
-    a %= MOD, b %= MOD;
+    a %= mod, b %= mod;
     normal(a), normal(b);
-    return (a * b) % MOD;
+    return (a * b) % mod;
 }
 inline ll modAdd(ll a, ll b)
 {
-    a %= MOD, b %= MOD;
+    a %= mod, b %= mod;
     normal(a), normal(b);
-    return (a + b) % MOD;
+    return (a + b) % mod;
 }
 inline ll modSub(ll a, ll b)
 {
-    a %= MOD, b %= MOD;
+    a %= mod, b %= mod;
     normal(a), normal(b);
     a -= b;
     normal(a);
-    return a % MOD;
+    return a % mod;
 }
 inline ll modPow(ll b, ll p)
 {
@@ -364,7 +364,7 @@ inline ll modPow(ll b, ll p)
     }
     return r;
 }
-inline ll modInverse(ll a) { return modPow(a, MOD - 2); }
+inline ll modInverse(ll a) { return modPow(a, mod - 2); }
 inline ll modDiv(ll a, ll b) { return modMul(a, modInverse(b)); }
 void Boom()
 {
