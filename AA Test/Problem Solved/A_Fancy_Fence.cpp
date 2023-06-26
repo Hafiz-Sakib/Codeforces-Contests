@@ -1,3 +1,5 @@
+// https://codeforces.com/problemset/problem/270/A
+
 // Bismillahir Rahmanir Rahim
 /*
 
