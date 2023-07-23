@@ -63,6 +63,26 @@ const double eps = 1e-12;
 
 void Boom()
 {
+    int n, maxi = -1, ans = -1;
+    cin >> n;
+    vpii v(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i].first >> v[i].second;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (v[i].first <= 10)
+        {
+            if (v[i].second > maxi)
+            {
+                maxi = v[i].second;
+                ans = i;
+            }
+        }
+    }
+
+    cout << ++ans << endl;
 }
 
 int main()

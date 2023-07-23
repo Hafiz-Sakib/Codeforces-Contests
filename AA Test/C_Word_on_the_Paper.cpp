@@ -63,6 +63,25 @@ const double eps = 1e-12;
 
 void Boom()
 {
+    string ans = "";
+    vs v(8);
+    for (int i = 0; i < 8; i++)
+    {
+        cin >> v[i];
+    }
+
+    for (auto s : v)
+    {
+        for (auto c : s)
+        {
+            if (c != '.')
+            {
+                ans += c;
+            }
+        }
+    }
+
+    cout << ans << endl;
 }
 
 int main()

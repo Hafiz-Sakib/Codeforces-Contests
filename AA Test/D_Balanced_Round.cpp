@@ -63,6 +63,29 @@ const double eps = 1e-12;
 
 void Boom()
 {
+    int n, k;
+    cin >> n >> k;
+    vi v(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i];
+    }
+
+    sort(all(v));
+
+    int now = 0, maxi = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        now++;
+        if (i == (n - 1) || (abs(v[i] - v[i + 1])) > k)
+        {
+            maxi = max(now, maxi);
+            now = 0;
+        }
+    }
+
+    cout << n - maxi << endl;
 }
 
 int main()
