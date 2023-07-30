@@ -1,5 +1,3 @@
-// https://codeforces.com/contest/1838/problem/A
-
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -65,18 +63,16 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    int n;
-    cin >> n;
-    vi a(n);
-    for (int i = 0; i < n; i++)
+    int n, c, h;
+    cin >> n >> c >> h;
+    if (c + h > n - 1)
     {
-        cin >> a[i];
+        cout << n + n - 1 << endl;
     }
-    sort(all(a));
-
-    ll ans = (a[0] < 0) ? a[0] : a[n - 1];
-
-    cout << ans << endl;
+    else
+    {
+        cout << ((c + h) * 2) + 1 << endl;
+    }
 }
 
 int main()
