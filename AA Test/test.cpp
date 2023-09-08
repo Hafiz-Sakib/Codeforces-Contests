@@ -61,20 +61,28 @@ const double eps = 1e-12;
     cin.tie(NULL);                    \
     cout.tie(NULL)
 
-void Boom()
+int BinaryExponentiation(int b, int p)
 {
+    int ans = 1;
+    while (p)
+    {
+        if (p & 1)
+        {
+            ans = (ans * 1LL * b) % mod;
+        }
+        b = (b * 1LL * b) % mod;
+        p >>= 1;
+    }
+    return ans;
 }
-
 int main()
 {
     Boost;
-
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        Boom();
-    }
-
+    int a, b;
+    cin >> a >> b;
+    cout << a
+         << " ^ "
+         << b
+         << " = " << BinaryExponentiation(a, b);
     return 0;
 }
