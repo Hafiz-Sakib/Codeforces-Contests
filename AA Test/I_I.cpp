@@ -65,7 +65,8 @@ void Boom()
 {
     int a;
     cin >> a;
-    cout << a << " " << a + (1 << 27) << " " << 0 << endl;
+    int res = a + (1 << 27);
+    cout << a << " " << res << " " << 0 << endl;
 }
 
 int main()
