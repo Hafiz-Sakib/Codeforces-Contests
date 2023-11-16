@@ -63,19 +63,6 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    ll n;
-    cin >> n;
-    int ans = 0, i = 1;
-    while (true)
-    {
-        if (n % i)
-        {
-            break;
-        }
-        ans++;
-        i++;
-    }
-    cout << ans << endl;
 }
 
 int main()

@@ -63,18 +63,18 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    int n, c = 1;
+    int n;
     cin >> n;
-    vi v(n + 1);
-    for (int i = 1; i <= n; i++)
+    string s;
+    cin >> s;
+    int a = 0, d = 0;
+    for (auto u : s)
     {
-        cin >> v[i];
+        (u == 'A') ? a++ : d++;
     }
-    for (int i = 1; i <= n; i++)
-    {
-        (v[i] == i) ? c++ : v[i]++;
-    }
-    cout << c / 2 << endl;
+    cout << ((a == d) ? "Friendship" : (a > d) ? "Anton"
+                                               : "Danik")
+         << endl;
 }
 
 int main()
@@ -82,7 +82,6 @@ int main()
     Boost;
 
     int t = 1;
-    cin >> t;
     while (t--)
     {
         Boom();
