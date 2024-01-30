@@ -10,6 +10,7 @@ using namespace std;
 
 typedef long long int ll;
 typedef unsigned long long ull;
+typedef long double ld;
 
 typedef vector<ll> vi;
 typedef vector<double> vd;
@@ -46,7 +47,7 @@ typedef set<string> ss;
 #define ignore cin.ignore(numeric_limits<streamsize>::max(), '\n')
 #define stringLower(data) transform(data.begin(), data.end(), data.begin(), ::tolower)
 #define stringUpper(data) transform(data.begin(), data.end(), data.begin(), ::toupper)
-
+#define setp(n) fixed << setprecision(n)
 #define gcd(a, b) __gcd(a, b)
 #define lcm(a, b) ((a * b) / gcd(a, b))
 #define mod 1000000007
@@ -60,12 +61,24 @@ const double eps = 1e-12;
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);                    \
     cout.tie(NULL)
-
+int val[1000005];
 void Boom()
 {
-    int n;
-    cin >> n;
-    
+    int n, m;
+    cin >> n >> m;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> val[i];
+    }
+    ld wyn = 0.0;
+    while (m--)
+    {
+        int a, b, c;
+        cin >> a >> b >> c;
+        wyn = max(wyn, ((ld)(val[a] + val[b])) / c);
+    }
+
+    cout << setp(18) << wyn << endl;
 }
 
 int main()
@@ -73,7 +86,6 @@ int main()
     Boost;
 
     int t = 1;
-    cin >> t;
     while (t--)
     {
         Boom();

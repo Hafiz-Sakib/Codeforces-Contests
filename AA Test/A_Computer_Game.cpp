@@ -65,7 +65,17 @@ void Boom()
 {
     int n;
     cin >> n;
-    
+    string a, b;
+    cin >> a >> b;
+    for (int i = 0; i < n; ++i)
+    {
+        if (a[i] == b[i] && a[i] == '1')
+        {
+            no;
+            return;
+        }
+    }
+    yes;
 }
 
 int main()
