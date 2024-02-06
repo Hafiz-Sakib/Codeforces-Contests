@@ -63,36 +63,36 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    ll n, q, l, r;
+    int n;
     cin >> n;
-    vi a(n), dif(n);
-    dif[n - 1] = n;
+    vector<int> a(n);
+    vector<int> p(n + 1);
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
-    for (int i = n - 2; i >= 0; i--)
+    p[0] = a[0];
+    for (int i = 1; i < n; i++)
     {
-        dif[i] = i + 1;
-        if (a[i] == a[i + 1])
-        {
-            dif[i] = dif[i + 1];
-        }
+        int d = abs(a[i] - a[i - 1]);
+        p[i] = p[i - 1] + d;
     }
+    int q;
     cin >> q;
     while (q--)
     {
+        int l, r;
         cin >> l >> r;
-        if (dif[l - 1] > r - 1)
+        if (p[l - 1] == p[r - 1])
         {
-            cout << "-1 -1" << endl;
+            cout << -1 << " " << -1 << endl;
         }
         else
         {
-            cout << 1 << ' ' << dif[l - 1] + 1 << endl;
+            int u = upper_bound(p.begin() + l - 1, p.begin() + r - 1, p[l - 1]) - p.begin();
+            cout << u << " " << u + 1 << endl;
         }
     }
-    cout << endl;
 }
 
 int main()
