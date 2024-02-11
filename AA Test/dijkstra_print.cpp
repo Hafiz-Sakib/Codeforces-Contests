@@ -34,7 +34,7 @@ void dijkstra(int source)
 
         visited[root_node] = 1;
 
-        // Traverse to the child of v,for relaxation
+        // Traverse to the child of v,for Relaxation
         for (auto child : g[root_node])
         {
             int child_node = child.first;
