@@ -5,7 +5,7 @@ const int inf = 1e7;
 const int n = 1e3;
 
 vector<pair<int, int>> g[n];
-// { node , weight}
+// { node , cost}
 
 void dijkstra(int source)
 {
@@ -13,7 +13,7 @@ void dijkstra(int source)
     vector<bool> visited(n, 0);
 
     set<pair<int, int>> st;
-    // {weight , node}
+    // {cost , node} => kept cost on first value to sort based on lowest cost
 
     st.insert({0, source});
     distance[source] = 0;
@@ -21,7 +21,7 @@ void dijkstra(int source)
     while (!st.empty())
     {
         auto node = *st.begin();
-        // will give the minimum weighted pair {weight , node}
+        // will give the minimum weighted pair {cost , node}
 
         int parent_node = node.second;
         int parent_node_cost = node.first;
@@ -64,11 +64,11 @@ int main()
     cin >> node >> edge;
     for (int i = 0; i < edge; i++)
     {
-        int u, v, wt;
-        cin >> u >> v >> wt;
-        g[u].push_back({v, wt});
-        g[v].push_back({u, wt});
-        // u/v indexed node connected with v/u node containing wt weight
+        int u, v, cost;
+        cin >> u >> v >> cost;
+        g[u].push_back({v, cost});
+        g[v].push_back({u, cost});
+        // u/v indexed node connected with v/u node with cost
     }
     dijkstra(0);
 
