@@ -4,17 +4,7 @@ using namespace std;
 const int inf = 1e7;
 const int n = 1e3;
 
-vector<pair<int, int>> g[n] = {
-    {},                                         // node 0
-    {{1, 9}, {4, 7}, {3, 3}},                   // node 1
-    {{4, 8}, {5, 11}, {7, 6}, {3, 17}, {2, 2}}, // node 2
-    {{4, 5}},                                   // node 3
-    {{6, 5}, {5, 12}},                          // node 4
-    {{7, 13}, {6, 6}},                          // node 5
-    {{7, 8}},                                   // node 6
-    {}                                          // node 7
-};
-;
+vector<pair<int, int>> g[n];
 // { node , weight}
 
 void dijkstra(int source)
