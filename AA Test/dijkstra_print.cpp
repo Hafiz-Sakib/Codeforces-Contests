@@ -68,7 +68,7 @@ int main()
         cin >> u >> v >> wt;
         g[u].push_back({v, wt});
         g[v].push_back({u, wt});
-        // u indexed node connected with v node containing wt weight
+        // u/v indexed node connected with v/u node containing wt weight
     }
     dijkstra(0);
 
