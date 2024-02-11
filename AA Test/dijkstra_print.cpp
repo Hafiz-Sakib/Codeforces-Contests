@@ -23,27 +23,27 @@ void dijkstra(int source)
         auto node = *st.begin();
         // will give the minimum weighted pair {weight , node}
 
-        int root_node = node.second;
-        int root_node_value = node.first;
+        int parent_node = node.second;
+        int parent_node_cost = node.first;
         st.erase(st.begin());
 
-        if (visited[root_node])
+        if (visited[parent_node])
         {
             continue;
         }
 
-        visited[root_node] = 1;
+        visited[parent_node] = 1;
 
         // Traverse to the child of v,for Relaxation
-        for (auto child : g[root_node])
+        for (auto child : g[parent_node])
         {
             int child_node = child.first;
             int edge_cost = child.second;
 
             // Relaxation
-            if ((root_node_value + edge_cost) < distance[child_node])
+            if ((parent_node_cost + edge_cost) < distance[child_node])
             {
-                distance[child_node] = (root_node_value + edge_cost);
+                distance[child_node] = (parent_node_cost + edge_cost);
                 st.insert({distance[child_node], child_node});
             }
         }
