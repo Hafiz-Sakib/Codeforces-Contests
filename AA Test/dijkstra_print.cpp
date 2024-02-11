@@ -70,6 +70,7 @@ int main()
         g[v].push_back({u, cost});
         // u/v indexed node connected with v/u node with cost
     }
+
     dijkstra(0);
 
     return 0;
