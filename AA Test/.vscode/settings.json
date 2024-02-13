@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "random": "cpp",
+    "regex": "cpp",
+    "functional": "cpp",
+    "chrono": "cpp",
+    "limits": "cpp",
+    "valarray": "cpp"
+  }
+}
