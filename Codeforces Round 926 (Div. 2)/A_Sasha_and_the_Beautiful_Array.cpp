@@ -70,28 +70,10 @@ void Boom()
     {
         cin >> v[i];
     }
-    int i = 0, j = n - 1;
-    while (v[i] == v[0])
-    {
-        i++;
-    }
-    while (v[j] == v[n - 1])
-    {
-        j--;
-    }
-    if (n == 1)
-    {
-        cout << 0 << endl;
-        return;
-    }
-    if (v[0] != v[n - 1])
-    {
-        cout << min((n - i), (j + 1)) << endl;
-    }
-    else
-    {
-        cout << max(0, (j - i + 1)) << endl;
-    }
+
+    sort(all(v));
+
+    cout << v.back() - v.front() << endl;
 }
 
 int main()

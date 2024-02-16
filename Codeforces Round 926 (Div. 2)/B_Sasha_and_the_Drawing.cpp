@@ -63,23 +63,15 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    int n;
-    cin >> n;
-
-    for (char c1 = 'a'; c1 <= 'z'; ++c1)
+    int n, k;
+    cin >> n >> k;
+    if (k == (4 * n - 2))
     {
-        for (char c2 = 'a'; c2 <= 'z'; ++c2)
-        {
-            for (char c3 = 'a'; c3 <= 'z'; ++c3)
-            {
-                int sum = (c1 - 'a' + 1) + (c2 - 'a' + 1) + (c3 - 'a' + 1);
-                if (sum == n)
-                {
-                    cout << c1 << c2 << c3 << endl;
-                    return;
-                }
-            }
-        }
+        cout << (2 * n) << endl;
+    }
+    else
+    {
+        cout << (k + 1) / 2 << endl;
     }
 }
 
