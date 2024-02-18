@@ -63,22 +63,19 @@ const double eps = 1e-12;
 
 void Boom()
 {
-    int c = 0, n;
+    int n;
     cin >> n;
-    string s;
-    cin >> s;
-    for (int i = 0; i < n - 1; i++)
+    vi v(n);
+    for (int i = 0; i < n; i++)
     {
-        if (s[i] == '*' && s[i + 1] == '*')
-        {
-            break;
-        }
-        if (s[i] == '@')
-        {
-            c++;
-        }
+        cin >> v[i];
     }
-    cout << c << endl;
+    int cur = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cur = (cur / v[i] + 1) * v[i];
+    }
+    cout << cur << endl;
 }
 
 int main()
