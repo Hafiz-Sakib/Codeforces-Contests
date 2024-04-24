@@ -1,4 +1,3 @@
-// https://codeforces.com/contest/1692/problem/A
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -100,18 +99,12 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
-    int c = 0;
-    vi v(4);
-    for (int i = 0; i < 4; i++)
+    ll n, c = 0;
+    cin >> n;
+    while (n)
     {
-        cin >> v[i];
-    }
-    for (int i = 1; i < 4; i++)
-    {
-        if (v[i] > v[0])
-        {
-            c++;
-        }
+        c += (n & 1);
+        n >>= 1;
     }
     cout << c << endl;
 }
@@ -119,14 +112,6 @@ void Boom()
 int main()
 {
     Boost;
-
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        // cout<<"Case "<<t<<" : ";
-        Boom();
-    }
-
+    Boom();
     return 0;
 }

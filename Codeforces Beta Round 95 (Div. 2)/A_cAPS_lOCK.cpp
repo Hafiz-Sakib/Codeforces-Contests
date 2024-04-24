@@ -1,5 +1,3 @@
-// https://codeforces.com/contest/1957/problem/A
-
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -101,47 +99,38 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
-    int n, c = 0;
-    cin >> n;
-    vi v(n);
-    map<int, int> mp;
-    for (int i = 0; i < n; i++)
+    string s;
+    char u;
+    bool ok = 1;
+    cin >> s;
+    for (int i = 1; i < s.size(); i++)
     {
-        cin >> v[i];
-    }
-    if (n <= 2)
-    {
-        cout << 0 << endl;
-        return;
-    }
-    else
-    {
-        for (int i = 0; i < n; i++)
+        if (islower(s[i]))
         {
-            mp[v[i]]++;
+            ok = 0;
         }
-        for (auto u : mp)
+    }
+
+    if (ok)
+    {
+        for (int i = 0; i < s.size(); i++)
         {
-            if (u.second >= 3)
+            if (s[i] >= 'a' and s[i] <= 'z')
             {
-                c++;
+                s[i] = toupper(s[i]);
+            }
+            else
+            {
+                s[i] = tolower(s[i]);
             }
         }
     }
-    cout << c << endl;
+    cout << s << endl;
 }
 
 int main()
 {
     Boost;
-
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        // cout<<"Case "<<t<<" : ";
-        Boom();
-    }
-
+    Boom();
     return 0;
 }
