@@ -1,5 +1,3 @@
-// https://codeforces.com/contest/1966
-
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -57,7 +55,7 @@ typedef set<int>::iterator sit;
 #define mid(l, r) ((r + l) >> 1)
 #define right(node) (node * 2 + 1)
 
-#define b() begin()
+// #define b() begin()
 #define e() end()
 #define sz(x) (int)x.size()
 #define all(data) data.begin(), data.end()
@@ -99,32 +97,52 @@ const ll infLL = 9000000000000000000;
     cin.tie(NULL);                    \
     cout.tie(NULL)
 
-void Boom()
+bool equals(vector<int> &a, vector<int> &b, int n)
 {
-    int n, k, ok = 0;
-    cin >> n >> k;
-    vi v(n);
-    map<int, int> m;
+    int dif = inf;
     for (int i = 0; i < n; i++)
     {
-        cin >> v[i];
-        m[v[i]]++;
-    }
-    for (auto u : m)
-    {
-        if (u.second >= k)
+        if (b[i] != 0)
         {
-            ok = 1;
+            dif = min(dif, a[i] - b[i]);
         }
     }
-    if (!ok)
+    if (dif < 0)
     {
-        cout << n << endl;
+        return false;
     }
-    else
+    if (dif == inf)
     {
-        cout << k - 1 << endl;
+        return true;
     }
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] - b[i] > dif)
+        {
+            return false;
+        }
+        if (b[i] != 0 && a[i] - b[i] < dif)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+void Boom()
+{
+    int n;
+    cin >> n;
+    vector<int> a(n), b(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cin >> b[i];
+    }
+    (equals(a, b, n) ? yes : no);
 }
 
 int main()

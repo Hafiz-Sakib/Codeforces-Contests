@@ -99,53 +99,31 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
-    int n, m;
-    cin >> n >> m;
-    vector<string> gr;
-
-    for (int i = 0; i < n; i++)
+    int n;
+    cin >> n;
+    int s[n];
+    int f[n];
+    for (int i = 0; i < n; ++i)
     {
-        string row;
-        cin >> row;
-        gr.push_back(row);
+        cin >> s[i];
     }
-
-    string ans = "YES";
-
-    if (gr[0][0] != gr[n - 1][m - 1])
+    for (int i = 0; i < n; ++i)
     {
-        bool impossible = true;
-        for (int j = 0; j < m - 1; j++)
-        {
-            if (gr[0][j] != gr[0][j + 1] || gr[n - 1][j] != gr[n - 1][j + 1])
-            {
-                impossible = false;
-                break;
-            }
-        }
-
-        if (impossible)
-        {
-            ans = "NO";
-        }
-
-        impossible = true;
-        for (int i = 0; i < n - 1; i++)
-        {
-            if (gr[i][0] != gr[i + 1][0] || gr[i][m - 1] != gr[i + 1][m - 1])
-            {
-                impossible = false;
-                break;
-            }
-        }
-
-        if (impossible)
-        {
-            ans = "NO";
-        }
+        cin >> f[i];
     }
-
-    cout << ans << endl;
+    int curTime = 0;
+    int d[n];
+    for (int i = 0; i < n; ++i)
+    {
+        curTime = max(curTime, s[i]);
+        d[i] = f[i] - curTime;
+        curTime = f[i];
+    }
+    for (auto now : d)
+    {
+        cout << now << " ";
+    }
+    cout << endl;
 }
 
 int main()

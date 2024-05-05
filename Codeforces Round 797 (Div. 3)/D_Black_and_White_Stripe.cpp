@@ -1,3 +1,4 @@
+// https://codeforces.com/problemset/problem/1690/D
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -99,35 +100,21 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
-    int n;
-    char ch;
-    cin >> n >> ch;
+    int n, k;
+    cin >> n >> k;
     string s;
     cin >> s;
-    s += s;
-    n = 2 * n;
-    int f = 0;
-    int cnt = 0;
-    int ans = 0;
-    for (int i = 0; i < n; i++)
+    vector<int> w(n + 1);
+    for (int i = 1; i <= n; i++)
     {
-        if (!f and s[i] == ch)
-        {
-            f = 1;
-            cnt = 0;
-        }
-        if (f and s[i] == 'g')
-        {
-            ans = max(ans, cnt);
-            cnt = 0;
-            f = 0;
-        }
-        if (f)
-        {
-            cnt++;
-        }
+        w[i] = w[i - 1] + int(s[i - 1] == 'W');
     }
-    cout << ans << endl;
+    int result = INT_MAX;
+    for (int i = k; i <= n; i++)
+    {
+        result = min(result, w[i] - w[i - k]);
+    }
+    cout << result << endl;
 }
 
 int main()

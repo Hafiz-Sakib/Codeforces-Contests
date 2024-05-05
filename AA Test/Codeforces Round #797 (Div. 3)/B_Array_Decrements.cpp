@@ -55,7 +55,7 @@ typedef set<int>::iterator sit;
 #define mid(l, r) ((r + l) >> 1)
 #define right(node) (node * 2 + 1)
 
-#define b() begin()
+// #define b() begin()
 #define e() end()
 #define sz(x) (int)x.size()
 #define all(data) data.begin(), data.end()
@@ -96,48 +96,53 @@ const ll infLL = 9000000000000000000;
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);                    \
     cout.tie(NULL)
-int n, m, opt, k;
+
+bool equals(vector<int> &a, vector<int> &b, int n)
+{
+    int dif = inf;
+    for (int i = 0; i < n; i++)
+    {
+        if (b[i] != 0)
+        {
+            dif = min(dif, a[i] - b[i]);
+        }
+    }
+    if (dif < 0)
+    {
+        return false;
+    }
+    if (dif == inf)
+    {
+        return true;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] - b[i] > dif)
+        {
+            return false;
+        }
+        if (b[i] != 0 && a[i] - b[i] < dif)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 void Boom()
 {
-    cin >> n >> m;
-    int a[n];
-    ll sum = 0, odd = 0, even = 0;
+    int n;
+    cin >> n;
+    vector<int> a(n), b(n);
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
-        sum += a[i];
-        if (a[i] & 1)
-        {
-            odd++;
-        }
-        else
-        {
-            even++;
-        }
     }
-    while (m--)
+    for (int i = 0; i < n; i++)
     {
-        cin >> opt >> k;
-        if (opt == 0)
-        {
-            sum += even * k;
-            if (k & 1)
-            {
-                odd += even;
-                even = 0;
-            }
-        }
-        else
-        {
-            sum += odd * k;
-            if (k & 1)
-            {
-                even += odd;
-                odd = 0;
-            }
-        }
-        cout << sum << endl;
+        cin >> b[i];
     }
+    (equals(a, b, n) ? yes : no);
 }
 
 int main()

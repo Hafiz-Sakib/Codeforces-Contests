@@ -1,3 +1,5 @@
+// https://codeforces.com/problemset/problem/1690/A
+
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -99,47 +101,21 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
-    vi v;
-    int n, res = 0;
+    int n;
     cin >> n;
-    for (int i = 1; i <= n; i++)
+    for (int a = 3; a < n; a++)
     {
-        int x;
-        cin >> x;
-        while (!(x & 1))
+        int c = (n - a) / 2;
+        int b = n - a - c;
+        if (c > 1 && b + 1 < a)
         {
-            res++;
-            x >>= 1;
+            c--;
+            b++;
         }
-        int c = i, tmp = 0;
-        while (!(c & 1))
+        if (a > b && b > c)
         {
-            tmp++;
-            c >>= 1;
-        }
-        v.push_back(tmp);
-    }
-    if (res >= n)
-    {
-        cout << 0 << endl;
-    }
-    else
-    {
-        sort(rall(v));
-        int ans = 0;
-        for (int i = 0; i < n; i++)
-        {
-            res += v[i];
-            ans++;
-            if (res >= n)
-            {
-                cout << ans << endl;
-                break;
-            }
-        }
-        if (res < n)
-        {
-            cout << -1 << endl;
+            cout << b << ' ' << a << ' ' << c << endl;
+            return;
         }
     }
 }

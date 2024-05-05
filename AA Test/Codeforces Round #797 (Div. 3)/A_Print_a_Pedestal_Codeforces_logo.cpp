@@ -1,3 +1,5 @@
+// https://codeforces.com/problemset/problem/1690/A
+
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -101,27 +103,21 @@ void Boom()
 {
     int n;
     cin >> n;
-    vector<int> a(n + 1);
-    for (int i = 1; i <= n; i++)
+    for (int a = 3; a < n; a++)
     {
-        cin >> a[i];
-    }
-    string s;
-    cin >> s;
-    map<int, char> mp;
-    for (int i = 1; i <= n; i++)
-    {
-        if (!mp.count(a[i]))
+        int c = (n - a) / 2;
+        int b = n - a - c;
+        if (c > 1 && b + 1 < a)
         {
-            mp[a[i]] = s[i - 1];
+            c--;
+            b++;
         }
-        else if (mp[a[i]] != s[i - 1])
+        if (a > b && b > c)
         {
-            no;
+            cout << b << ' ' << a << ' ' << c << endl;
             return;
         }
     }
-    yes;
 }
 
 int main()

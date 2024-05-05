@@ -1,3 +1,4 @@
+// https://codeforces.com/problemset/problem/1690/D
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -99,52 +100,23 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
-    int a;
-    cin >> a;
-
-    vector<int> v(a);
-    map<int, int> mp;
-
-    for (int i = 0; i < a; ++i)
+    int n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    vector<int> w(n + 1);
+    for (int i = 1; i <= n; i++)
     {
-        cin >> v[i];
-        mp[v[i]]++;
+        w[i] = w[i - 1] + int(s[i - 1] == 'W');
     }
-
-    sort(v.begin(), v.end());
-
-    int i = 0;
-    int prev = 0;
-
-    for (i = 0; i < a; ++i)
+    int result = INT_MAX;
+    for (int i = k; i <= n; i++)
     {
-        if (v[i] - prev > 1)
-        {
-            break;
-        }
-        prev = v[i];
+        result = min(result, w[i] - w[i - k]);
     }
-
-    if (i == a)
-    {
-        if (mp.size() % 2 == 0)
-        {
-            cout << "Bob" << endl;
-        }
-        else
-        {
-            cout << "Alice" << endl;
-        }
-    }
-    else if (a == 1 || i % 2 == 0 || mp.size() == 1)
-    {
-        cout << "Alice" << endl;
-    }
-    else
-    {
-        cout << "Bob" << endl;
-    }
+    cout << result << endl;
 }
+
 int main()
 {
     Boost;
