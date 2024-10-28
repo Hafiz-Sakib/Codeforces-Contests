@@ -154,7 +154,6 @@ int main()
     cin >> t;
     while (t--)
     {
-        // cout<<"Case "<<t<<" : ";
         Boom();
     }
 
