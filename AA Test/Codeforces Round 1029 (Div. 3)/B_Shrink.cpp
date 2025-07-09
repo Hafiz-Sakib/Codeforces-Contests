@@ -100,6 +100,14 @@ const ll infLL = 9000000000000000000;
 void Boom()
 {
     // Let's Move
+    int n;
+    cin >> n;
+
+    for (int i = 2; i <= n; i++)
+    {
+        cout << i << ' ';
+    }
+    cout << 1 << endl;
 }
 
 int main()
