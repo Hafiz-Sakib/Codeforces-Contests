@@ -106,7 +106,7 @@ void Boom()
     x /= g;
     y /= g;
 
-    if (x <= k && y <= k)
+    if (x <= k and y <= k)
     {
         cout << "1" << endl;
     }
