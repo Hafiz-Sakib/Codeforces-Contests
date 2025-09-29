@@ -1,5 +1,3 @@
-// https://codeforces.com/contest/2122/problem/A
-
 // Bismillahir Rahmanir Rahim
 /*
 
@@ -101,17 +99,24 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
-    // Let's Move
-    int n, m;
-    cin >> n >> m;
-    if (n == 1 || m == 1 || ((n == 2) && (m == 2)))
+    int n;
+    cin >> n;
+    int cnt = 0;
+    int c = 0;
+    vi v(n);
+    for (int i = 0; i < n; i++)
     {
-        no;
+        cin >> v[i];
+        if (v[i] == -1)
+        {
+            c++;
+        }
+        else if (v[i] == 0)
+        {
+            cnt++;
+        }
     }
-    else
-    {
-        yes;
-    }
+    cout << cnt + (c % 2) * 2 << endl;
 }
 
 int main()
