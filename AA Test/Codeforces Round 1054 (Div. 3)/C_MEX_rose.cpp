@@ -116,7 +116,7 @@ void Boom()
             if (x == 0)
                 count_zero++;
         }
-        cout << count_zero << '\n';
+        cout << count_zero << endl;
     }
     else
     {
@@ -141,7 +141,7 @@ void Boom()
                 missing++;
             }
         }
-        cout << max(missing, count_k) << '\n';
+        cout << max(missing, count_k) << endl;
     }
 }
 
