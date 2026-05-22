@@ -97,13 +97,17 @@ const ll infLL = 9000000000000000000;
     cin.tie(NULL);                    \
     cout.tie(NULL)
 
-int ans = 0;
 void Boom()
 {
     // Let's Move
-    int p, q;
-    cin >> p >> q;
-    (abs(p - q) >= 2) ? ans++ : ans = ans;
+    int n;
+    cin >> n;
+    for (int i = (n + 1); i <= 2 * n; i++)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    return;
 }
 
 int main()
@@ -117,7 +121,6 @@ int main()
         // cout<<"Case "<<t<<" : ";
         Boom();
     }
-    cout << ans << endl;
 
     return 0;
 }
