@@ -99,15 +99,30 @@ const ll infLL = 9000000000000000000;
 
 void Boom()
 {
-    // Let's Move
     int n;
     cin >> n;
-    for (int i = (n + 1); i <= 2 * n; i++)
+
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+
+    int k = 0;
+
+    for (int i = 1; i < n; i++)
     {
-        cout << i << " ";
+        k = (a[i] < a[i - 1]) ? max(k, a[i - 1] - a[i]) : k;
     }
-    cout << endl;
-    return;
+
+    for (int i = 1; i < n; i++)
+    {
+        (a[i] < a[i - 1]) ? a[i] += k : a[i];
+        if (a[i] < a[i - 1])
+        {
+            no;
+            return;
+        }
+    }
+    yes;
 }
 
 int main()
