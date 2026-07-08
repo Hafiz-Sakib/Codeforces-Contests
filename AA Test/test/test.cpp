@@ -101,6 +101,9 @@ void Boom()
 {
     // Let's Move
     cout << "Hello World" << endl;
+    int a, b;
+    cin >> a >> b;
+    cout << a << " + " << b << " = " << a + b << endl;
 }
 
 int main()
