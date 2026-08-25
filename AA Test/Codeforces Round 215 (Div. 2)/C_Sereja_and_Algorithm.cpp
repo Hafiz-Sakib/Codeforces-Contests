@@ -153,6 +153,5 @@ int main()
         // cout<<"Case "<<t<<" : ";
         Boom();
     }
-
     return 0;
 }
