@@ -104,13 +104,17 @@ void Boom()
 
     vector<int> v(n);
     for (int i = 0; i < n; i++)
+    {
         cin >> v[i];
+    }
 
     vector<long long> sumall;
     long long sum = 0;
 
     for (int i = 0; i < k; i++)
+    {
         sum += v[i];
+    }
     sumall.pb(sum);
 
     for (int i = k; i < n; i++)
